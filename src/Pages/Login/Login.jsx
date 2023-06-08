@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -12,18 +13,7 @@ const Register = () => {
 
 
     }
-    // sign up with google
-    const handleWithGoogleSingUp = () => {
-        // signInWithPopup(auth, googleProvider)
-        //     .then((result) => {
-        //         const loggedGoogleUser = result.user;
-        //         toast.success("User created successfully");
-        //     })
-        //     .catch((error) => {
-        //         console.error(error.message);
-        //         toast.error(error.message);
-        //     });
-    };
+
 
     // toggle show password
     const toggleShowPassword = () => {
@@ -121,15 +111,7 @@ const Register = () => {
                             Register
                         </Link>
                     </div>
-                    <div className="w-full px-6 flex items-center text-center mx-auto py-5">
-                        <hr className="flex-1 border-t border-slate-400" />
-                        <span className="my-0 mx-[10px] font-bold text-slate-400">or</span>
-                        <hr className="flex-1 border-t border-slate-400" />
-                    </div>
-                    <div onClick={handleWithGoogleSingUp} className="flex items-center justify-center gap-[6px] w-ful; mx-6 h-[50px] border border-slate-400 rounded-md cursor-pointer">
-                        <FcGoogle className='w-10 h-10'></FcGoogle>
-                        <span>Continue with Google</span>
-                    </div>
+                    <SocialLogin></SocialLogin>
                 </form>
                 {/* End Card with form */}
             </section>

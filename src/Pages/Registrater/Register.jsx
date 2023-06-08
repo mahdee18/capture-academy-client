@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -14,7 +15,15 @@ const Register = () => {
     }
     // sign up with google
     const handleWithGoogleSingUp = () => {
-
+        // signInWithPopup(auth, googleProvider)
+        //     .then((result) => {
+        //         const loggedGoogleUser = result.user;
+        //         toast.success("User created successfully");
+        //     })
+        //     .catch((error) => {
+        //         console.error(error.message);
+        //         toast.error(error.message);
+        //     });
     };
 
     // toggle show password
@@ -24,6 +33,9 @@ const Register = () => {
     return (
         <div>
             <section className="max-w-7xl mx-auto px-4 py-12">
+                <Helmet>
+                    <title>Capture Academy | Register</title>
+                </Helmet>
                 {/* Component: Card with form */}
                 <form onSubmit={handleSubmit(onSubmit)} className="max-w-[415px] mx-auto overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200 pb-10">
                     {/* Body*/}
@@ -126,16 +138,14 @@ const Register = () => {
                             </div>
                             <div className="relative my-6">
                                 <input
-                                    id="password"
                                     type={showPassword ? "text" : "password"}
-                                    name="password"
-                                    {...register("password", {
-                                        required: true,
-                                        maxLength: 20,
-                                        minLength: 6,
-                                        pattern: /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
-
-                                    })}
+                                    {...register("confirmpassword",
+                                        {
+                                            required: true,
+                                            validate: (value) =>
+                                                value === document.getElementById("password").value,
+                                        }
+                                    )}
 
                                     placeholder="New password"
                                     className="relative w-full h-10 px-4 pr-12 text-sm placeholder-transparent transition-all border rounded outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-purple-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
@@ -164,6 +174,10 @@ const Register = () => {
                                 <small className="absolute flex justify-between w-full px-4 py-1 text-xs transition text-slate-400 peer-invalid:text-pink-500">
                                     <span>Re-type new password</span>
                                 </small>
+
+                                {errors.confirmpassword && (
+                                    <p className="text-red-600 ml-44">Passwords do not match.</p>
+                                )}
 
                             </div>
                             <div className="relative my-6">

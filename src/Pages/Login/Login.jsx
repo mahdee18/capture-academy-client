@@ -14,7 +14,15 @@ const Register = () => {
     }
     // sign up with google
     const handleWithGoogleSingUp = () => {
-
+        // signInWithPopup(auth, googleProvider)
+        //     .then((result) => {
+        //         const loggedGoogleUser = result.user;
+        //         toast.success("User created successfully");
+        //     })
+        //     .catch((error) => {
+        //         console.error(error.message);
+        //         toast.error(error.message);
+        //     });
     };
 
     // toggle show password

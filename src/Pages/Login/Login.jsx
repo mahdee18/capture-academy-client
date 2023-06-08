@@ -3,15 +3,22 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
+import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
+    const { signIn } = useAuth()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = data => {
-        console.log(data);
-
-
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.error(error.message)
+            })
     }
 
 

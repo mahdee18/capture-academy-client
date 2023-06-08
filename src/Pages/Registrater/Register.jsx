@@ -2,22 +2,27 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { AuthContext } from '../../Providers/AuthProviders';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
+import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [showPassword, setShowPassword] = useState(false);
-
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(useAuth)
 
     const onSubmit = data => {
         createUser(data.email, data.password)
+
+        updateUserProfile(data.name, data.photoURL)
+            .then(() => {
+
+            })
             .then(result => {
                 const user = result.user;
                 console.log(user)
                 const saveUser = { name: data.name, email: data.email }
                 console.log(saveUser)
+                
 
             })
             .catch(error => {

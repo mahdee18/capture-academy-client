@@ -107,14 +107,14 @@ const Register = () => {
                     <div className="flex justify-end p-6 -mt-5">
                         <button
                             type="submit"
-                            className="btn border-0 inline-flex items-center justify-center w-full h-10 gap-2 px-5 text-sm font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-purple-700 disabled:cursor-not-allowed disabled:border hover:bg-green-600"
+                            className="btn border-0 inline-flex items-center justify-center w-full h-10 gap-2 px-5 text-sm font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-green-600 disabled:cursor-not-allowed disabled:border hover:bg-purple-600"
                         >
                             <span>Login</span>
                         </button>
                     </div>
                     <div className="-mt-1 text-center text-md transition text-slate-400 peer-invalid:text-pink-500">
                         Don't have an account?
-                        <Link className="ml-1 text-purple-700 font-semibold" to="/register">
+                        <Link className="ml-1 text-green-500 font-semibold" to="/register">
                             Register
                         </Link>
                     </div>

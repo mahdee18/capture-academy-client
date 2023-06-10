@@ -8,12 +8,15 @@ import { BiAddToQueue, BiSelectMultiple } from "react-icons/bi";
 import { SiGoogleclassroom } from "react-icons/si";
 import { BsBookmarkPlusFill } from "react-icons/bs";
 import useAuth from '../Hooks/useAuth';
+import useAdmin from '../Hooks/useAdmin';
+import useInstructor from '../Hooks/useInstructor';
 
 
 const Dashboard = () => {
     const { user } = useAuth()
     console.log(user)
-    const role = 'admin'
+    const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructor()
     return (
         <>
             <Navbar></Navbar>
@@ -29,7 +32,7 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                         {
-                            (role === "admin") ? <>
+                            isAdmin ? <>
                                 <div className='mx-auto text-center w-3/4 my-10'>
                                     <img src={user.photoURL} className='mx-auto rounded-full' alt="" />
                                     <h3 className='text-2xl font-bold'>{user.displayName}</h3>
@@ -39,7 +42,7 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/manage-user"><BiAddToQueue></BiAddToQueue> Manage User</NavLink></li>
                                 <li><NavLink to="/"><IoIosHome></IoIosHome>  Home</NavLink></li>
                             </> :
-                                (role === "instructor") ?
+                                isInstructor ?
                                     <>
                                         <div className='mx-auto text-center w-3/4 my-10'>
                                             <img src={user.photoURL} className='mx-auto rounded-full' alt="" />

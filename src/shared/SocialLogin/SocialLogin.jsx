@@ -14,13 +14,23 @@ const SocialLogin = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user;
-                console.log(user)
-                const saveUser = { name: user.displayName, email: user.email }
-                console.log(saveUser)
-                navigate(from , {replace: true})
+                // console.log(user);
+                const saveUsers = { name: user.displayName, email: user.email, role: "student" }
+                fetch("http://localhost:3000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(saveUsers)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                    })
+
             })
             .catch(error => {
-                console.error(error.message)
+                console.log(error);
             })
     }
     return (

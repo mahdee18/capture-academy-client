@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 import useAuth from '../../Hooks/useAuth';
+import swal from 'sweetalert2';
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -17,22 +18,37 @@ const Register = () => {
         createUser(data.email, data.password)
 
             .then(result => {
-                const user = result.user;
-                console.log(user)
-                const saveUser = { name: data.name, email: data.email }
-                console.log(saveUser)
-                reset()
-                navigate(from, { replace: true })
-
-            })
-        updateUserProfile(data.name, data.photoURL)
-            .then(() => {
-
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        const saveUsers = { name: data.name, email: data.email, role: "student" }
+                        fetch("http://localhost:5000/users", {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json"
+                            },
+                            body: JSON.stringify(saveUsers)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset()
+                                    swal.fire({
+                                        position: 'center',
+                                        icon: 'success',
+                                        title: 'User Created Successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    navigate(from, { replace: true })
+                                }
+                            })
+                    })
             })
             .catch(error => {
-                console.error(error)
+                console.log(error)
             })
-
 
     }
 

@@ -54,7 +54,6 @@ const router = createBrowserRouter([
             {
               path: 'manage-user',
               element:<ManageUser></ManageUser>,
-              loader:()=>fetch('http://localhost:3000/users')
             },
             {
               path: 'manage-class',

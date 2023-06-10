@@ -1,10 +1,16 @@
 import React from 'react';
 import {  FaAd, FaUserShield } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const ManageUser = () => {
-    const users = useLoaderData();
-    console.log(users);
+    const [axiosSecure] =useAxiosSecure()
+    const { data: users = [], refetch } = useQuery(["users"], async () => {
+        const res = await axiosSecure.get("/users")
+        console.log(res.data);
+        return res.data;
+    })
     return (
         <div>
             <h2>Manage user!!</h2>

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const { signIn } = useAuth()
@@ -19,7 +20,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                reset()
+                reset()  
                 navigate(from , {replace: true})
             })
             .catch(error => {

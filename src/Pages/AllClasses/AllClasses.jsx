@@ -13,11 +13,11 @@ const AllClasses = () => {
                     <p className='absolute top-2 right-2 bg-slate-200 px-2 py-2 rounded'>${classItem.price}</p>
                     <div className="card-body items-center text-center text-lg">
                         <h2 className="card-title">{classItem.class_name}</h2>
-                        <p>Instructor: {classItem.instructor_name}</p>
+                        <span>Instructor: {classItem.instructor_name}</span>
 
-                        <p className=''>Available Seats: {classItem.available_seats}</p>
+                        <span className=''>Available Seats: {classItem.available_seats}</span>
                         <div className="card-actions">
-                            <button className="btn btn-outline bg-slate-200 border-0 border-b-4 border-b-orange-600">Add To Cart</button>
+                            <button className="btn btn-outline bg-slate-200 border-0 border-b-4 border-b-green-600">Add To Cart</button>
                         </div>
                     </div>
                 </div>

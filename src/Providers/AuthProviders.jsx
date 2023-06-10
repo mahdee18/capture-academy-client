@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { app } from '../firebase/firebase.config';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import axios from 'axios';
 
 export const AuthContext = createContext(null)
 const AuthProviders = ({ children }) => {
@@ -22,6 +23,11 @@ const AuthProviders = ({ children }) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        })
+    }
     const logOut = () => {
         setLoading(true)
         return signOut(auth)
@@ -29,8 +35,19 @@ const AuthProviders = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
-            setLoading(false)
-            console.log('current User', currentUser);
+            if (currentUser) {
+                axios.post("http://localhost:3000/jwt", { email: currentUser.email })
+                    .then(data => {
+                        console.log(data.data.token);
+                        localStorage.setItem("access-token", data.data.token)
+
+                        setLoading(false)
+                    })
+            }
+            else {
+                localStorage.removeItem("access-token")
+            }
+
         })
         return () => {
             return unsubscribe();
@@ -42,6 +59,7 @@ const AuthProviders = ({ children }) => {
         createUser,
         signInWithGoogle,
         signIn,
+        updateUserProfile,
         logOut
     }
     return (

@@ -1,11 +1,19 @@
 import React from 'react';
 import Navbar from '../shared/Navbar/Navbar';
 import Footer from '../shared/Footer/Footer';
-import { FaHome, FaUsers } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
+import { IoIosHome } from "react-icons/io";
+import { BiAddToQueue, BiSelectMultiple } from "react-icons/bi";
+import { SiGoogleclassroom } from "react-icons/si";
+import { BsBookmarkPlusFill } from "react-icons/bs";
+import useAuth from '../Hooks/useAuth';
+
 
 const Dashboard = () => {
-    const role = 'admin'
+    const { user } = useAuth()
+    console.log(user)
+    const role = 'instructor'
     return (
         <>
             <Navbar></Navbar>
@@ -17,26 +25,42 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side sticky">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                         {
                             (role === "admin") ? <>
+                                <div className='mx-auto text-center w-3/4 my-10'>
+                                    <img src={user.photoURL} className='mx-auto rounded-full' alt="" />
+                                    <h3 className='text-2xl font-bold'>{user.displayName}</h3>
+                                    <p>{user.email}</p>
+                                </div>
                                 <li><NavLink to="/dashboard/manage-class"><FaUsers></FaUsers> Manage Class</NavLink></li>
-                                <li><NavLink to="/dashboard/manage-user"><FaUsers></FaUsers> Manage User</NavLink></li>
-                                <li><NavLink to="/"><FaHome></FaHome>  Home</NavLink></li>
+                                <li><NavLink to="/dashboard/manage-user"><BiAddToQueue></BiAddToQueue> Manage User</NavLink></li>
+                                <li><NavLink to="/"><IoIosHome></IoIosHome>  Home</NavLink></li>
                             </> :
                                 (role === "instructor") ?
                                     <>
-                                        <li><NavLink to="/dashboard/"> Add Class</NavLink></li>
-                                        <li><NavLink to="/dashboard/"> MY Class</NavLink></li>
-                                        <li><NavLink to="/"> Home</NavLink></li>
+                                        <div className='mx-auto text-center w-3/4 my-10'>
+                                            <img src={user.photoURL} className='mx-auto rounded-full' alt="" />
+                                            <h3 className='text-2xl font-bold'>{user.displayName}</h3>
+                                            <p>{user.email}</p>
+                                        </div>
+                                        <li><NavLink to="/dashboard/add-class"> <BiAddToQueue></BiAddToQueue> Add Class</NavLink></li>
+                                        <li><NavLink to="/dashboard/my-class"> <SiGoogleclassroom></SiGoogleclassroom> My Class</NavLink></li>
+                                        <li><NavLink to="/"> <IoIosHome></IoIosHome> Home</NavLink></li>
 
                                     </> :
                                     <>
-                                        <li><NavLink>My Enrolled Class</NavLink></li>
-                                        <li><NavLink>My Select Class</NavLink></li>
-                                        <li><NavLink to="/"> Home</NavLink></li>
+                                        <div className='mx-auto text-center w-3/4 my-10'>
+                                            <img src={user.photoURL} className='mx-auto rounded-full' alt="" />
+                                            <h3 className='text-2xl font-bold'>{user.displayName}</h3>
+                                            <p>{user.email}</p>
+                                        </div>
+                                        <li><NavLink to='enrolled-class'><BsBookmarkPlusFill></BsBookmarkPlusFill> My Enrolled Class</NavLink></li>
+                                        <li><NavLink to='selected-class'><BiSelectMultiple></BiSelectMultiple> My Selected Class</NavLink></li>
+
+                                        <li><NavLink to="/"> <IoIosHome></IoIosHome> Home</NavLink></li>
                                     </>
 
                         }

@@ -1,11 +1,15 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import useAuth from '../../Hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
-    const {signInWithGoogle} = useAuth()
+    const { signInWithGoogle } = useAuth()
+
+    const location = useLocation()
     const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
+
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
@@ -13,7 +17,7 @@ const SocialLogin = () => {
                 console.log(user)
                 const saveUser = { name: user.displayName, email: user.email }
                 console.log(saveUser)
-                navigate('/')
+                navigate(from , {replace: true})
             })
             .catch(error => {
                 console.error(error.message)

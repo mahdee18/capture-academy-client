@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 import useAuth from '../../Hooks/useAuth';
@@ -10,11 +10,17 @@ const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [showPassword, setShowPassword] = useState(false);
 
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
+
     const onSubmit = data => {
         signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                reset()
+                navigate(from , {replace: true})
             })
             .catch(error => {
                 console.error(error.message)

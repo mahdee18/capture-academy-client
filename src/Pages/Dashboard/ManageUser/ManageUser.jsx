@@ -1,15 +1,36 @@
 import React from 'react';
-import {  FaAd, FaUserShield } from 'react-icons/fa';
+import { FaAd, FaUserShield } from 'react-icons/fa';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
 
 const ManageUser = () => {
-    const [axiosSecure] =useAxiosSecure()
+    const [axiosSecure] = useAxiosSecure()
     const { data: users = [], refetch } = useQuery(["users"], async () => {
         const res = await axiosSecure.get("/users")
         console.log(res.data);
         return res.data;
     })
+    const handleMakeAdmin = user => {
+        fetch(`http://localhost:3000/users/admin/${user._id}`, {
+            method: "PATCH"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                refetch()
+                if (data.acknowledged == true) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is now admin!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+
+    }
     return (
         <div>
             <h2>Manage user!!</h2>
@@ -47,9 +68,10 @@ const ManageUser = () => {
                                 <td>
                                     <button className="btn btn-ghost"><FaAd></FaAd></button>
                                 </td>
-                                <td>
-                                    <button className="btn text-lg btn-ghost "><FaUserShield></FaUserShield></button>
-                                </td>
+                                <td>{user.role == 'admin' ? 'admin' : <button onClick={() => handleMakeAdmin(user)} className="btn btn-
+                                    bg-[#D1A054] border-0 btn-lg">
+                                    <FaUserShield></FaUserShield>
+                                </button>}</td>
                             </tr>
                         ))}
                     </tbody>

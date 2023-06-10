@@ -13,7 +13,7 @@ import useAuth from '../Hooks/useAuth';
 const Dashboard = () => {
     const { user } = useAuth()
     console.log(user)
-    const role = 'instructor'
+    const role = 'admin'
     return (
         <>
             <Navbar></Navbar>

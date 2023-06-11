@@ -3,6 +3,7 @@ import useSelectedClass from '../../../Hooks/useSelectedClass';
 import { FaAd, FaTrash, FaUserShield } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 const SelectClass = () => {
     const [selectClass, refetch] = useSelectedClass()
@@ -69,7 +70,9 @@ const SelectClass = () => {
                                     bg-red-600 text-white border-0 btn-sm hover:bg-black">
                                     <FaTrash></FaTrash>
                                 </button>}</td>
-                                <td className='btn btn-outline'>Pay</td>
+                                <td>
+                                    <Link to="/dashboard/payment" state={user}><button className='btn btn-warning btn-sm'>Pay</button></Link>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

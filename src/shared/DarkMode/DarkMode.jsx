@@ -20,9 +20,9 @@ const DarkMode = () => {
     // Update the page background color based on the dark mode status
     if (updatedMode) {
       document.documentElement.style.backgroundColor = "#1f2937";
-      document.documentElement.style.color = "#ffffff";
-      document.getElementsByClassName("nav")[0].style.background = "#1f2937";
-      document.getElementsByClassName("nav")[0].style.color = "#ffffff";
+      document.documentElement.style.color = "black";
+      document.getElementsByClassName("nav")[0].style.background = "white";
+      document.getElementsByClassName("nav")[0].style.color = "black";
     } else {
       document.documentElement.style.backgroundColor = "#ffffff";
       document.documentElement.style.color = "#1f2937";

@@ -1,69 +1,156 @@
-import { Link } from 'react-router-dom';
-import useAuth from '../../Hooks/useAuth';
+import { Link, NavLink } from "react-router-dom";
+import DarkMode from "../DarkMode/DarkMode";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
-    const { user, logOut } = useAuth()
+    const { user, logOut } = useAuth();
 
+    // logout imnpliment here
     const handleLogOut = () => {
         logOut()
-            .then()
-            .catch(error => {
-                console.error(error.message)
-            })
-    }
-    const navItem = (
-        <>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/instructor">Instructor</Link></li>
-            <li><Link to="/allclasses">Classes</Link></li>
-        </>
-    );
-
-    const conditionalNavItem = (
-        <>
-            <li><Link to="/dashboard">Dashboard</Link></li>
-        </>
-    );
-
+            .then(() => { })
+            .catch((error) => {
+                console.error(error.message);
+            });
+    };
     return (
-        <div>
-            <div className="navbar bg-base-100">
-                <div className="navbar-start flex items-center">
-                    <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-semibold">
-                            {navItem}
+        <header className="nav sticky top-0 z-50 bg-white text-[#1f2937]">
+            <nav className="navbar max-w-7xl mx-auto flex justify-between items-center">
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h8m-8 6h16"
+                            />
+                        </svg>
+                    </label>
+                    <ul
+                        tabIndex={0}
+                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                        <li className=" font-medium">
+                            <NavLink
+                                exact
+                                active className="active  font-semibold hover:text-warning"
+                                to="/"
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className="font-medium">
+                            <NavLink
+                                active className="font-semibold hover:text-warning"
+                                to="/instructors"
+                            >
+                                Instructors
+                            </NavLink>
+                        </li>
+                        <li className=" font-medium">
+                            <NavLink
+                                activeClassName="font-semibold hover:text-warning"
+                                to="/classes"
+                            >
+                                Classes
+                            </NavLink>
+                        </li>
 
-                            {conditionalNavItem}
-                        </ul>
-                    </div>
-                    <div className="flex md:flex-col items-center ml-2v">
-                        <img src="https://clipartcraft.com/images/transparent-ca-logo-1.png" className="w-16 h-16 lg:w-24 lg:h-18" alt="" />
-                    </div>
-                </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 font-bold">
-                        {navItem}
-                        {conditionalNavItem}
+                        {user && (
+                            <li className=" font-medium">
+                                <NavLink
+                                    activeClassName="active font-semibold hover:text-warning"
+                                    to="/dashboard"
+                                >
+                                    Dashboard
+                                </NavLink>
+                            </li>
+                        )}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <div>
-                        {user ?
-                            <div className='flex gap-2 md:gap-4'>
-                                <img title={user.displayName} className='rounded-full w-11 h-11' src={user.photoURL} alt="" />
-                                <button onClick={handleLogOut} className='btn btn-primary bg-green-500 border-0 text-white'>Logout</button>
-                            </div> :
-                            <Link to='/login' className="btn btn-primary bg-green-500 border-0 text-white">Login</Link>
-                        }
+                <div className="my-auto me-auto">
+                <div className="flex md:flex-col items-center ml-2v">
+                        <img src="https://clipartcraft.com/images/transparent-ca-logo-1.png" className="w-16 h-16 lg:w-24 lg:h-18" alt="" />
+                    </div>
+                    <DarkMode></DarkMode>
+                </div>
+                <div className="hidden lg:flex me-auto">
+                    <ul className="flex items-center justify-start gap-6 px-1">
+                        <li className="font-medium">
+                            <NavLink
+                                activeClassName="active font-semibold hover:text-warning"
+                                to="/"
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className=" font-medium">
+                            <NavLink
+                                activeClassName="font-semibold hover:text-warning"
+                                to="/instructor"
+                            >
+                                Instructors
+                            </NavLink>
+                        </li>
+                        <li className=" font-medium">
+                            <NavLink
+                                activeClassName="font-semibold hover:text-warning"
+                                to="/allclasses"
+                            >
+                                Classes
+                            </NavLink>
+                        </li>
+
+                        {user && (
+                            <li className="font-medium">
+                                <NavLink
+                                    activeClassName="active font-semibold hover:text-warning"
+                                    to="/dashboard"
+                                >
+                                    Dashboard
+                                </NavLink>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+                <div>
+                    <div className="flex items-center justify-end">
+                        <div className="flex items-center justify-end md:justify-center gap-6">
+                            {user ? (
+                                <span className="flex items-center justify-center gap-3">
+                                    <img
+                                        title={user.displayName}
+                                        className="-mr-1 md:m-0 w-10 h-10 md:w-12 md:h-12 rounded-full"
+                                        //   src={user.photoURL}
+                                        src={user.photoURL}
+                                        alt="User profile image"
+                                    />
+                                    <button
+                                        onClick={handleLogOut}
+                                        className="btn border-0 text-white hover:text-black hover:border hover:border-warning bg-green-600 px-4 py-1.5 md:px-6 md:py-2 font-semibold rounded flex items-center gap-1 hover:btn-outline"
+                                    >
+                                        Logout
+                                    </button>
+                                </span>
+                            ) : (
+                                <Link to="/login">
+                                    <button className="btn border-0 text-white hover:text-black hover:border hover:border-warning bg-green-600 rounded px-4 py-1.5 md:px-6 md:py-2 font-semibold  flex items-center gap-1 hover:btn-outline">
+                                        Login
+                                    </button>
+                                </Link>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </nav>
+        </header>
     );
 };
 

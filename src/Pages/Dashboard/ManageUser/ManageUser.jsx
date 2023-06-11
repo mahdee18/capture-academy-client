@@ -53,7 +53,9 @@ const ManageUser = () => {
     }
     return (
         <div>
-            <h2>Manage user!!</h2>
+            <h2 className="text-center text-2xl font-semibold my-12">
+                Manage Users
+            </h2>
 
             <div className="overflow-x-auto">
                 <table className="table">
@@ -87,7 +89,7 @@ const ManageUser = () => {
                                 <td>{user.role}</td>
 
                                 <td>{user.role == 'instructor' ? 'instructor' : <button onClick={() => handleMakeInstructor(user)} className="btn border-0 btn-lg">
-                                        <FaAd></FaAd>
+                                    <FaAd></FaAd>
                                 </button>}</td>
 
                                 <td>{user.role == 'admin' ? 'admin' : <button onClick={() => handleMakeAdmin(user)} className="btn btn-

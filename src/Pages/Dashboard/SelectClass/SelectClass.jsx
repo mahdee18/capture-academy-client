@@ -3,7 +3,9 @@ import React from 'react';
 const SelectClass = () => {
     return (
         <div>
-            SelectClass
+            <h2 className="text-center text-2xl font-semibold my-12">
+                Select Classes
+            </h2>
         </div>
     );
 };

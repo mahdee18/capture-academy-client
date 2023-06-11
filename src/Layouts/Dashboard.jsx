@@ -1,8 +1,7 @@
-import React from 'react';
 import Navbar from '../shared/Navbar/Navbar';
 import Footer from '../shared/Footer/Footer';
 import { FaUsers } from 'react-icons/fa';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { IoIosHome } from "react-icons/io";
 import { BiAddToQueue, BiSelectMultiple } from "react-icons/bi";
 import { SiGoogleclassroom } from "react-icons/si";
@@ -29,8 +28,8 @@ const Dashboard = () => {
 
                 </div>
                 <div className="drawer-side sticky">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                    <label htmlFor="my-drawer-2" className=""></label>
+                    <ul className="menu p-4 w-80 h-full text-black  ">
                         {
                             isAdmin ? <>
                                 <div className='mx-auto text-center w-3/4 my-10'>
@@ -38,9 +37,9 @@ const Dashboard = () => {
                                     <h3 className='text-2xl font-bold'>{user.displayName}</h3>
                                     <p>{user.email}</p>
                                 </div>
-                                <li><NavLink to="/dashboard/manage-class"><FaUsers></FaUsers> Manage Class</NavLink></li>
-                                <li><NavLink to="/dashboard/manage-user"><BiAddToQueue></BiAddToQueue> Manage User</NavLink></li>
-                                <li><NavLink to="/"><IoIosHome></IoIosHome>  Home</NavLink></li>
+                                <li><Link to="/dashboard/manage-class"><FaUsers></FaUsers> Manage Class</Link></li>
+                                <li><Link to="/dashboard/manage-user"><BiAddToQueue></BiAddToQueue> Manage User</Link></li>
+                                <li><Link to="/"><IoIosHome></IoIosHome>  Home</Link></li>
                             </> :
                                 isInstructor ?
                                     <>
@@ -49,9 +48,9 @@ const Dashboard = () => {
                                             <h3 className='text-2xl font-bold'>{user.displayName}</h3>
                                             <p>{user.email}</p>
                                         </div>
-                                        <li><NavLink to="/dashboard/add-class"> <BiAddToQueue></BiAddToQueue> Add Class</NavLink></li>
-                                        <li><NavLink to="/dashboard/my-class"> <SiGoogleclassroom></SiGoogleclassroom> My Class</NavLink></li>
-                                        <li><NavLink to="/"> <IoIosHome></IoIosHome> Home</NavLink></li>
+                                        <li><Link to="/dashboard/add-class"> <BiAddToQueue></BiAddToQueue> Add Class</Link></li>
+                                        <li><Link to="/dashboard/my-class"> <SiGoogleclassroom></SiGoogleclassroom> My Class</Link></li>
+                                        <li><Link to="/"> <IoIosHome></IoIosHome> Home</Link></li>
 
                                     </> :
                                     <>
@@ -60,10 +59,10 @@ const Dashboard = () => {
                                             <h3 className='text-2xl font-bold'>{user.displayName}</h3>
                                             <p>{user.email}</p>
                                         </div>
-                                        <li><NavLink to='enrolled-class'><BsBookmarkPlusFill></BsBookmarkPlusFill> My Enrolled Class</NavLink></li>
-                                        <li><NavLink to='selected-class'><BiSelectMultiple></BiSelectMultiple> My Selected Class</NavLink></li>
+                                        <li><Link to='enrolled-class'><BsBookmarkPlusFill></BsBookmarkPlusFill> My Enrolled Class</Link></li>
+                                        <li><Link to='selected-class'><BiSelectMultiple></BiSelectMultiple> My Selected Class</Link></li>
 
-                                        <li><NavLink to="/"> <IoIosHome></IoIosHome> Home</NavLink></li>
+                                        <li><Link to="/"> <IoIosHome></IoIosHome> Home</Link></li>
                                     </>
 
                         }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2'
 import useAuth from '../../../Hooks/useAuth';
+import { Helmet } from 'react-helmet';
 
 const AddClass = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -9,47 +10,51 @@ const AddClass = () => {
     const onSubmit = async (data) => {
         // Prepare the class object to be added to the database
         const newClass = {
-          instructor_name: user.displayName,
-          instructor_email: user.email,
-          instructor_image: data.instructor_image,
-          class_name: data.class_name,
-          class_image: data.class_image,
-          available_seats: data.available_seats,
-          price: parseFloat(data.price),
-          class_status: "pending",
-          enrolled_student: 0,
+            instructor_name: user.displayName,
+            instructor_email: user.email,
+            instructor_image: data.instructor_image,
+            class_name: data.class_name,
+            class_image: data.class_image,
+            available_seats: data.available_seats,
+            price: parseFloat(data.price),
+            feedback: '',
+            class_status: "pending",
+            enrolled_student: 0,
         };
-    console.log(newClass);
+        console.log(newClass);
         try {
-          const res = await fetch("http://localhost:3000/add-class", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newClass),
-          });
-    
-          if (res.ok) {
-            console.log("Class added successfully");
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: `New class added!`,
-              showConfirmButton: false,
-              timer: 1500,
+            const res = await fetch("http://localhost:3000/add-class", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newClass),
             });
-            reset(); // Reset the form fields
-          } else {
-            console.log("Error:", res.status);
-          }
+
+            if (res.ok) {
+                console.log("Class added successfully");
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `New class added!`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                reset(); // Reset the form fields
+            } else {
+                console.log("Error:", res.status);
+            }
         } catch (error) {
-          console.log("Error:", error);
+            console.log("Error:", error);
         }
-      };
+    };
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-[750px] mx-auto overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-400">
             {/* Body*/}
             <div className="p-6">
+                <Helmet>
+                    <title>Capture Academy | Add Class</title>
+                </Helmet>
                 <header className="mb-4 text-center">
                     <h3 className="text-xl font-medium text-slate-700">Please add a Class!</h3>
                 </header>
@@ -133,7 +138,7 @@ const AddClass = () => {
                     </div>
                     <div className='flex w-full gap-4'>
 
-                        {/* Sub Category field */}
+                        {/* Seats field */}
                         <div className="relative my-6 w-1/2">
                             <input
                                 type="text"

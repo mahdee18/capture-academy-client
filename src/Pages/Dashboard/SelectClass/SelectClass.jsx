@@ -2,30 +2,34 @@ import React from 'react';
 import useSelectedClass from '../../../Hooks/useSelectedClass';
 import { FaAd, FaTrash, FaUserShield } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const SelectClass = () => {
     const [selectClass, refetch] = useSelectedClass()
     console.log(selectClass)
     const handleDelete = (user) => {
         if (window.confirm("Are you sure? You won't be able to revert this!")) {
-          fetch(`http://localhost:3000/select-class/${user._id}`, {
-            method: "DELETE",
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.deletedCount > 0) {
-                refetch();
-                alert("Your Class has been deleted.");
-              }
-            });
+            fetch(`http://localhost:3000/select-class/${user._id}`, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.deletedCount > 0) {
+                        refetch();
+                        alert("Your Class has been deleted.");
+                    }
+                });
         }
-      };
-      
+    };
+
     return (
         <>
+            <Helmet>
+                <title>Capture Academy | Select Class</title>
+            </Helmet>
             <div>
                 <h2 className="text-center text-2xl font-semibold my-12">
-                    Select Classes
+                    Select Classes : {selectClass.length}
                 </h2>
             </div>
             <div className="overflow-x-auto">
@@ -39,6 +43,7 @@ const SelectClass = () => {
                             <th>Instructor Name</th>
                             <th>Price</th>
                             <th>Action</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +69,7 @@ const SelectClass = () => {
                                     bg-red-600 text-white border-0 btn-sm hover:bg-black">
                                     <FaTrash></FaTrash>
                                 </button>}</td>
+                                <td className='btn btn-outline'>Pay</td>
                             </tr>
                         ))}
                     </tbody>

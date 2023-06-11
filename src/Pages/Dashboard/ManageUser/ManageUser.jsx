@@ -3,6 +3,7 @@ import { FaAd, FaUserShield } from 'react-icons/fa';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const ManageUser = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -56,7 +57,9 @@ const ManageUser = () => {
             <h2 className="text-center text-2xl font-semibold my-12">
                 Manage Users
             </h2>
-
+            <Helmet>
+                <title>Capture Academy | Manage User</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

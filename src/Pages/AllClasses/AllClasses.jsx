@@ -2,6 +2,7 @@ import Swal from 'sweetalert2';
 import useData from '../../Hooks/useData';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
+import { Helmet } from 'react-helmet';
 
 const AllClasses = () => {
     const [data] = useData();
@@ -34,7 +35,9 @@ const AllClasses = () => {
                 <h2 className='text-5xl font-bold'>Capture the World Through Your Lens</h2>
                 <p className='text-lg py-3'> Expand Your Skills and Vision with Our Inspiring Photography Classes.</p>
             </div>
-
+            <Helmet>
+                <title>Capture Academy | All Classes</title>
+            </Helmet>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {data.map((classItem) => (
                     <div key={classItem.id} className="card bg-base-100 shadow-xl relative">

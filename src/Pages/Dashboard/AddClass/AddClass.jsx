@@ -6,20 +6,46 @@ import useAuth from '../../../Hooks/useAuth';
 const AddClass = () => {
     const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth()
-    const onSubmit = data => {
-        console.log(data);
-
-
-
-        // if (data.acknowledged == true) {
-        //     Swal.fire({
-        //         title: 'Success!',
-        //         text: 'Class Added successfully!!',
-        //         icon: 'success',
-        //         confirmButtonText: 'Cool'
-        //     })
-        // }
-    }
+    const onSubmit = async (data) => {
+        // Prepare the class object to be added to the database
+        const newClass = {
+          instructor_name: user.displayName,
+          instructor_email: user.email,
+          instructor_image: data.instructor_image,
+          class_name: data.class_name,
+          class_image: data.class_image,
+          available_seats: data.available_seats,
+          price: parseFloat(data.price),
+          class_status: "pending",
+          enrolled_student: 0,
+        };
+    console.log(newClass);
+        try {
+          const res = await fetch("http://localhost:3000/add-class", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newClass),
+          });
+    
+          if (res.ok) {
+            console.log("Class added successfully");
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `New class added!`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            reset(); // Reset the form fields
+          } else {
+            console.log("Error:", res.status);
+          }
+        } catch (error) {
+          console.log("Error:", error);
+        }
+      };
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-[750px] mx-auto overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-400">
             {/* Body*/}
@@ -75,6 +101,7 @@ const AddClass = () => {
                                 id="className"
                                 type="text"
                                 {...register("instructor_name", { required: true })}
+                                defaultValue={user?.displayName}
                                 placeholder="Class name"
                                 className="relative w-full h-10 px-4 text-sm placeholder-transparent transition-all border rounded outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-green-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
                             />
@@ -91,7 +118,7 @@ const AddClass = () => {
                                 id="instructorEmail"
                                 type="email"
                                 {...register("instructor_email", { required: true })}
-                                defaultValue={user.email}
+                                defaultValue={user?.email}
                                 name="InstructorEmail"
                                 placeholder="Instructor email"
                                 className="relative w-full h-10 px-4 text-sm placeholder-transparent transition-all border rounded outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-green-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"

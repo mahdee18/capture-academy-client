@@ -1,8 +1,33 @@
+import Swal from 'sweetalert2';
 import useData from '../../Hooks/useData';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAuth from '../../Hooks/useAuth';
 
 const AllClasses = () => {
     const [data] = useData();
+    const [axiosSecure] = useAxiosSecure()
+    const { user } = useAuth()
 
+    const handleSelectClass = cls => {
+        const { class_name, class_image, instructor_name, price } = cls;
+        if (user?.email) {
+            const newClass = { userEmail: user?.email, class_name, class_image, instructor_name, price }
+            axiosSecure.post('/select-class', newClass)
+                .then(data => {
+                    console.log(data.data.insertedId)
+                    if (data.data.insertedId) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Selected successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
+                .catch(err => console.log(err))
+        }
+    }
     return (
         <>
             <div className='text-center text-white my-10 py-10 bg-green-500'>
@@ -23,7 +48,7 @@ const AllClasses = () => {
 
                             <span className=''>Available Seats: {classItem.available_seats}</span>
                             <div className="card-actions">
-                                <button className="btn btn-outline bg-slate-200 border-0 border-b-4 border-b-green-600">Select Class</button>
+                                <button onClick={() => handleSelectClass(classItem)} className="btn btn-outline bg-slate-200 border-0 border-b-4 border-b-green-600">Select Class</button>
                             </div>
                         </div>
                     </div>

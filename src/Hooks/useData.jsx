@@ -3,7 +3,7 @@ const useData = () => {
     const { data: data = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['menu'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:3000/alldata')
+            const res = await fetch('https://capture-academy-server-eta.vercel.app/alldata')
             return res.json()
         }
     })

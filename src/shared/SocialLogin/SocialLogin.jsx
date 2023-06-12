@@ -16,7 +16,7 @@ const SocialLogin = () => {
                 const user = result.user;
                 // console.log(user);
                 const saveUsers = { name: user.displayName, email: user.email, role: "student" }
-                fetch("http://localhost:3000/users", {
+                fetch("https://capture-academy-server-eta.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

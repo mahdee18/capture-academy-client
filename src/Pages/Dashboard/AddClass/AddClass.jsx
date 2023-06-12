@@ -23,7 +23,7 @@ const AddClass = () => {
         };
         console.log(newClass);
         try {
-            const res = await fetch("http://localhost:3000/alldata", {
+            const res = await fetch("https://capture-academy-server-eta.vercel.app/alldata", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const SelectClass = () => {
     console.log(selectClass)
     const handleDelete = (user) => {
         if (window.confirm("Are you sure? You won't be able to revert this!")) {
-            fetch(`http://localhost:3000/select-class/${user._id}`, {
+            fetch(`https://capture-academy-server-eta.vercel.app/select-class/${user._id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

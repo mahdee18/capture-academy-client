@@ -25,7 +25,7 @@ const Register = () => {
             })
             .then(() => {
                 const saveUsers = { name: data.name, email: data.email, role: "student" };
-                return fetch("http://localhost:3000/users", {
+                return fetch("https://capture-academy-server-eta.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",

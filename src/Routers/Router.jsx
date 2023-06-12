@@ -82,12 +82,12 @@ const router = createBrowserRouter([
             {
               path: 'enrolled-class',
               element:<EnrolledClass></EnrolledClass>,
-              loader: ()=>fetch('http://localhost:3000/enrolled-class')
+              loader: ()=>fetch('https://capture-academy-server-eta.vercel.app/enrolled-class')
             },
             {
               path: 'payment-history',
               element:<PymentHistory></PymentHistory>,
-              loader: ()=>fetch('http://localhost:3000/enrolled-class')
+              loader: ()=>fetch('https://capture-academy-server-eta.vercel.app/enrolled-class')
             },
             {
               path: 'selected-class',

@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 
 const AllClasses = () => {
   const [data] = useData();
-  const approvedData = data.filter(item=>item.class_status === 'approved')
+  const approvedData = data.filter(item => item.class_status === 'approved')
   const [axiosSecure] = useAxiosSecure();
   const { user } = useAuth()
   const [isAdmin] = useAdmin();
@@ -59,7 +59,7 @@ const AllClasses = () => {
     }
   };
 
-  
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 my-20">
@@ -71,10 +71,10 @@ const AllClasses = () => {
         {approvedData.map((item) => (
           <div
             key={item._id}
-            className={`overflow-hidden rounded bg-white text-slate-500 shadow-md shadow-slate-200 ${
+            className={`overflow-hidden rounded text-slate-500 shadow-md shadow-slate-200 ${
               item.available_seats <= 0
-                ? "bg-red-500"
-                : "bg-none"
+                ? " bg-red-200"
+                : "border-0"
             }`}
           >
             {/* Image */}
@@ -107,7 +107,7 @@ const AllClasses = () => {
               {user && (isAdmin || isInstructor) ? (
                 <button
                   onClick={() => handleButtonClick(item)}
-                  className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap bg-green-600 px-5 text-sm font-medium tracking-wide text-white opacity-50 rounded cursor-not-allowed"
+                  className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-none bg-green-600 px-5 text-sm font-medium tracking-wide text-white opacity-50 cursor-not-allowed"
                   disabled
                 >
                   <span>Select class</span>
@@ -115,11 +115,10 @@ const AllClasses = () => {
               ) : (
                 <button
                   onClick={() => handleButtonClick(item)}
-                  className={`inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap bg-green-600 px-5 text-sm font-medium tracking-wide text-white absolute mb-16 rounded ${
-                    item.available_seats <= 0
+                  className={`inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-none bg-green-600 px-5 text-sm font-medium tracking-wide text-white ${item.available_seats <= 0
                       ? "opacity-50 cursor-not-allowed"
                       : ""
-                  }`}
+                    }`}
                   disabled={item.available_seats <= 0}
                 >
                   <span>Select class</span>

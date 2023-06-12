@@ -62,7 +62,17 @@ const MyClasses = () => {
                   <span className="badge badge-ghost badge-sm">{user.enrolled_student
                   }</span>
                 </td>
-                <td><button className='btn btn-ghost btn-xs'> Feedback</button></td>
+                <td>
+                  {Array.isArray(user.feedback) ? (
+                    user.feedback.map((feedbackItem, index) => (
+                      <p key={index} className="mb-2">
+                        {feedbackItem}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="mb-2">There is no Feedback</p>
+                  )}
+                </td>
                 <td><button className='btn btn-xs'>Update</button></td>
 
               </tr>

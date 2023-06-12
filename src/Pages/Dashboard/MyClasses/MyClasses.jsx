@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../Hooks/useAuth';
@@ -6,19 +6,20 @@ import useAuth from '../../../Hooks/useAuth';
 const MyClasses = () => {
   const [axiosSecure] = useAxiosSecure();
   const { user } = useAuth();
-  const [addedClasses, setAddedClasses] = useState([]);
 
+  const [addedClass, setAddedClass] = useState([]);
   useEffect(() => {
-    axiosSecure(`/myclass?email=${user?.email}`)
-      .then(data => {
-        const addedClassesData = Object.values(data.data);
-        console.log('Added classes', addedClassesData);
-        setAddedClasses(addedClassesData);
+    axiosSecure(`/add-class?email=${user?.email}`)
+      .then(res => {
+        const addedClassesData = res.data;
+        setAddedClass(addedClassesData);
       })
       .catch(error => {
-        console.log('Error fetching added classes', error);
+        console.error(error);
       });
   }, [axiosSecure, user]);
+  console.log(addedClass);
+
 
   return (
     <div>
@@ -35,31 +36,30 @@ const MyClasses = () => {
           <thead>
             <tr className='text-center'>
               <th>#</th>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Enrolled Student</th>
-              <th>Feedback</th>
+              <th>Class Name</th>
               <th>Status</th>
-              <th></th>
+              <th>Enrolled Students</th>
+              <th>Feedback</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {/* rows */}
-            {addedClasses.map((addedClass, index) => (
+            {addedClass.map((user, index) => (
               <tr key={index} className='text-center'>
                 <td>{index + 1}</td>
-                <td><img src={addedClass.class_image} alt="" /></td>
                 <td>
                   <div className="flex items-center space-x-3">
                     <div>
-                      <div className="font-bold">{addedClass.class_name}</div>
+                      <div className="font-bold">{user.instructor_name}</div>
                     </div>
                   </div>
                 </td>
-                <td>{addedClass.enrolled_student}</td>
-                <td>{addedClass.class_status}</td>
-                <td>{addedClass.feedback}</td>
-                <td><button className='btn btn-sm'>Update</button></td>
+                <td>
+                  <span className="badge badge-ghost badge-sm">{user.enroll_status}</span>
+                </td>
+                <td><button className='btn btn-ghost btn-sm'> Feedback</button></td>
+                
               </tr>
             ))}
           </tbody>

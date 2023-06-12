@@ -23,7 +23,7 @@ const AddClass = () => {
         };
         console.log(newClass);
         try {
-            const res = await fetch("http://localhost:3000/add-class", {
+            const res = await fetch("http://localhost:3000/alldata", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -51,15 +51,20 @@ const MyClasses = () => {
                 <td>
                   <div className="flex items-center space-x-3">
                     <div>
-                      <div className="font-bold">{user.instructor_name}</div>
+                      <div className="font-bold">{user.class_name}</div>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <span className="badge badge-ghost badge-sm">{user.enroll_status}</span>
+                  <span className="badge badge-ghost badge-sm">{user.class_status}</span>
                 </td>
-                <td><button className='btn btn-ghost btn-sm'> Feedback</button></td>
-                
+                <td>
+                  <span className="badge badge-ghost badge-sm">{user.enrolled_student
+                  }</span>
+                </td>
+                <td><button className='btn btn-ghost btn-xs'> Feedback</button></td>
+                <td><button className='btn btn-xs'>Update</button></td>
+
               </tr>
             ))}
           </tbody>

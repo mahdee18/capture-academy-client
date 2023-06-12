@@ -2,16 +2,17 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 
-const EnrolledClass = () => {
+const PymentHistory = () => {
+    
     const data = useLoaderData()
-    console.log('Enrolled data', data)
+    console.log('History  data', data)
     return (
         <div>
             <h2 className="text-center text-2xl font-semibold my-12">
-                My Enrolled Class
+                Payment History
             </h2>
             <Helmet>
-                <title>Capture Academy | Enrolled Class</title>
+                <title>Capture Academy | Payment History</title>
             </Helmet>
 
             <div className="overflow-x-auto">
@@ -20,11 +21,12 @@ const EnrolledClass = () => {
                     <thead>
                         <tr className='text-center'>
                             <th>#</th>
-                            <th>Image</th>
                             <th>Instructor Name</th>
                             <th>Class Name</th>
                             <th>Price</th>
                             <th>Email</th>
+                            <th>Data</th>
+                            <th>Transaction ID</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,19 +35,14 @@ const EnrolledClass = () => {
                             <tr key={index} className='text-center'>
                                 <td>{index + 1}</td>
                                 <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div>
-                                            <div className="font-bold h-12 w-24"><img src={user.image} alt="" /></div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
                                     <span>{user.InstructorName}</span>
                                 </td>
                                 <td>{user.className}</td>
 
                                 <td>{user.price}</td>
                                 <td>{user.email}</td>
+                                <td>{user.data}</td>
+                                <td>{user.transectionId}</td>
                                 
                             </tr>
                         ))}
@@ -56,4 +53,4 @@ const EnrolledClass = () => {
     );
 };
 
-export default EnrolledClass;
+export default PymentHistory;

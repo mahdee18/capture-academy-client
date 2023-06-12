@@ -1,6 +1,6 @@
 import Navbar from '../shared/Navbar/Navbar';
 import Footer from '../shared/Footer/Footer';
-import { FaUsers } from 'react-icons/fa';
+import { FaHistory, FaUsers } from 'react-icons/fa';
 import { Link, Outlet } from 'react-router-dom';
 import { IoIosHome } from "react-icons/io";
 import { BiAddToQueue, BiSelectMultiple } from "react-icons/bi";
@@ -61,6 +61,7 @@ const Dashboard = () => {
                                         </div>
                                         <li><Link to='enrolled-class'><BsBookmarkPlusFill></BsBookmarkPlusFill> My Enrolled Class</Link></li>
                                         <li><Link to='selected-class'><BiSelectMultiple></BiSelectMultiple> My Selected Class</Link></li>
+                                        <li><Link to='payment-history'><FaHistory></FaHistory> Payment History</Link></li>
 
                                         <li><Link to="/"> <IoIosHome></IoIosHome> Home</Link></li>
                                     </>

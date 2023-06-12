@@ -19,6 +19,9 @@ import EnrolledClass from "../Pages/Dashboard/EnrolledClass/EnrolledClass";
 import SelectClass from "../Pages/Dashboard/SelectClass/SelectClass";
 import Feedback from "../Pages/Dashboard/ManageClasses/feedback";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import PymentHistory from "../Pages/Dashboard/PaymentHistory/PymentHistory";
+import InstructorRoute from "./InstructorRoute";
+import AdminRoute from "./AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -53,33 +56,38 @@ const router = createBrowserRouter([
         path:'/dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children:[
-            {
-              path: 'admin-home',
-              element:<AdminHome></AdminHome>
-            },
+          // Admin Route
             {
               path: 'manage-user',
-              element:<ManageUser></ManageUser>,
+              element:<AdminRoute><ManageUser></ManageUser></AdminRoute>,
             },
             {
               path: 'manage-class',
-              element:<ManageClasses></ManageClasses> 
+              element:<AdminRoute><ManageClasses></ManageClasses></AdminRoute> 
             },
             {
               path: 'feedback',
-              element:<Feedback></Feedback> 
+              element:<AdminRoute><Feedback></Feedback></AdminRoute> 
             },
+            // Instructor Route
             {
               path: 'add-class',
-              element:<AddClass></AddClass>
+              element:<InstructorRoute><AddClass></AddClass></InstructorRoute>
             },
             {
               path: 'my-class',
-              element:<MyClasses></MyClasses>
+              element:<InstructorRoute><MyClasses></MyClasses></InstructorRoute>
             },
+            // Student Route
             {
               path: 'enrolled-class',
-              element:<EnrolledClass></EnrolledClass>
+              element:<EnrolledClass></EnrolledClass>,
+              loader: ()=>fetch('http://localhost:3000/enrolled-class')
+            },
+            {
+              path: 'payment-history',
+              element:<PymentHistory></PymentHistory>,
+              loader: ()=>fetch('http://localhost:3000/enrolled-class')
             },
             {
               path: 'selected-class',

@@ -30,8 +30,7 @@ const Feedback = () => {
       
     return (
         <div>
-            {/* todo: have to be add a form for feedback */}
-            <h2 className="text-3xl text-center mb-10">FeedBack For Instructor</h2>
+            <h2 className="text-3xl text-center mb-10">Feedback For Instructor</h2>
             <div className="w-3/4 mx-auto bg-[#e5e8ec] p-10 h-96">
                 <form onSubmit={handleFeedback} action="">
                     <textarea
@@ -40,7 +39,7 @@ const Feedback = () => {
                         placeholder="Write Feedback"
                     ></textarea>
                     <div className="text-end">
-                        <button type="submit" className="btn bg-orange-500 border-0 ">
+                        <button type="submit" className="btn bg-green-500 border-0 ">
                             Send
                         </button>
                     </div>

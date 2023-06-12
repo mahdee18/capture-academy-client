@@ -10,23 +10,30 @@ const Instructor = () => {
                 <p className='text-lg py-3'> Experience the Art of Photography with Our Passionate Mentors</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {data.map((classItem) => (
-                    <div key={classItem.id} className="card bg-base-100 shadow-xl relative">
-                        <figure className="">
-                            <img src={classItem.instructor_image} alt="Shoes" className="rounded-xl h-[200px] w-[500px]" />
-                        </figure>
-                        <p className='absolute top-2 right-2 bg-slate-200 px-2 py-2 rounded'>${classItem.price}</p>
-                        <div className="card-body items-center text-center text-lg">
-                            <h2 className="card-title">{classItem.class_name}</h2>
-                            <p>Instructor: {classItem.instructor_name}</p>
-
-                            <p className=''>Available Seats: {classItem.available_seats}</p>
-                            <div className="card-actions">
-                                <button className="btn btn-outline bg-slate-200 border-0 border-b-4 border-b-orange-600">Add To Cart</button>
-                            </div>
-                        </div>
+            {data.map((instructor) => (
+                <div
+                    className="overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200"
+                    key={instructor._id}
+                >
+                    <figure>
+                        <img
+                            src={instructor.instructor_image}
+                            alt="card image"
+                            className="aspect-video w-full"
+                        />
+                    </figure>
+                    <div className="p-6">
+                        <header>
+                            <h3 className="text-xl font-medium text-slate-700">
+                                {instructor.instructor_name}
+                            </h3>
+                            <p className="text-sm text-slate-400">
+                                {instructor.instructor_email}
+                            </p>
+                        </header>
                     </div>
-                ))}
+                </div>
+            ))}
             </div>
         </>
     );

@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 
 const AllClasses = () => {
   const [data] = useData();
+  const approvedData = data.filter(item=>item.class_status === 'approved')
   const [axiosSecure] = useAxiosSecure();
   const { user } = useAuth()
   const [isAdmin] = useAdmin();
@@ -67,7 +68,7 @@ const AllClasses = () => {
       </Helmet>
       <h2 className="font-bold text-center text-3xl mb-16">All Classes</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-        {data.map((item) => (
+        {approvedData.map((item) => (
           <div
             key={item._id}
             className={`overflow-hidden rounded bg-white text-slate-500 shadow-md shadow-slate-200 ${

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 
-const DarkMode = () => {
+const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const DarkMode = () => {
     // Update the page background color based on the dark mode status
     if (updatedMode) {
       document.documentElement.style.backgroundColor = "#1f2937";
-      document.documentElement.style.color = "black";
+      document.documentElement.style.color = "#ffffff";
       document.getElementsByClassName("nav")[0].style.background = "white";
       document.getElementsByClassName("nav")[0].style.color = "black";
     } else {
@@ -45,4 +45,4 @@ const DarkMode = () => {
   );
 };
 
-export default DarkMode;
+export default DarkModeToggle;

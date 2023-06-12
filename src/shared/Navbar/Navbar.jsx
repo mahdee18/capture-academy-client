@@ -14,7 +14,7 @@ const Navbar = () => {
             });
     };
     return (
-        <header className="nav sticky top-0 z-50 bg-white text-[#1f2937]">
+        <header className="nav sticky top-0 z-50 text-[#1f2937]">
             <nav className="navbar max-w-7xl mx-auto flex justify-between items-center">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

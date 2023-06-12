@@ -3,14 +3,15 @@ import useData from '../../../Hooks/useData';
 
 const ClassCard = () => {
     const [data] = useData()
+    const approvedData = data.filter(item=>item.class_status === 'approved')
 
     return (
         <>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-                {data.map((item) => (
+                {approvedData.map((item) => (
                     <div
                         key={item._id}
-                        className='overflow-hidden rounded bg-white text-slate-500 shadow-md shadow-slate-200'
+                        className='overflow-hidden rounded bg-transparent text-slate-500 shadow-md shadow-slate-200'
                     >
                         {/* Image */}
                         <figure>

@@ -46,7 +46,7 @@ const EnrolledClass = () => {
 
                                 <td>{user.price}</td>
                                 <td>{user.email}</td>
-                                
+
                             </tr>
                         ))}
                     </tbody>

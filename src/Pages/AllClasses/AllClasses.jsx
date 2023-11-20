@@ -62,73 +62,79 @@ const AllClasses = () => {
 
 
   return (
-    <div className="max-w-7xl mx-auto px-4 my-20">
-      <Helmet>
-        <title>Capture Academy - All Classes</title>
-      </Helmet>
-      <h2 className="font-bold text-center text-3xl mb-16">All Classes</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-        {approvedData.map((item) => (
-          <div
-            key={item._id}
-            className={`overflow-hidden rounded text-slate-500 shadow-md shadow-slate-200 ${
-              item.available_seats <= 0
+    <>
+      <div className='text-center text-white my-10 py-10 bg-green-500'>
+        <h2 className='md:text-5xl text-3xl font-bold'>Our Popular Class</h2>
+        <p className='text-lg py-3'> Experience the Art of Photography with Our Passionate Mentors</p>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 my-20">
+        <Helmet>
+          <title>Capture Academy - All Classes</title>
+        </Helmet>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          {approvedData.map((item) => (
+            <div
+              key={item._id}
+              className={`overflow-hidden rounded text-slate-500 shadow-md shadow-slate-200 ${item.available_seats <= 0
                 ? " bg-red-200"
                 : "border-0"
-            }`}
-          >
-            {/* Image */}
-            <figure>
-              <img
-                src={item.class_image}
-                alt="card image"
-                className="aspect-video w-full"
-              />
-            </figure>
-            {/* Body */}
-            <div className="p-6">
-              <header className="mb-4">
-                <h3 className="text-xl font-medium text-slate-700">
-                  {item.class_name}
-                </h3>
-                <p className="font-semibold text-black text-md my-3">
-                  {item.instructor_name}
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-slate-400">Price: ${item.price}</span>
-                  <span className="text-slate-400">
-                    Available seats: {item.available_seats}
-                  </span>
-                </div>
-              </header>
-            </div>
-            {/* Action base sized basic button */}
-            <div className="flex justify-end p-6 pt-0">
-              {user && (isAdmin || isInstructor) ? (
-                <button
-                  onClick={() => handleButtonClick(item)}
-                  className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-none bg-green-600 px-5 text-sm font-medium tracking-wide text-white opacity-50 cursor-not-allowed"
-                  disabled
-                >
-                  <span>Select class</span>
-                </button>
-              ) : (
-                <button
-                  onClick={() => handleButtonClick(item)}
-                  className={`inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-none bg-green-600 px-5 text-sm font-medium tracking-wide text-white ${item.available_seats <= 0
+                }`}
+            >
+              {/* Image */}
+              <figure>
+                <img
+                  src={item.class_image}
+                  alt="card image"
+                  className="aspect-video w-full"
+                />
+              </figure>
+              {/* Body */}
+              <div className="p-6">
+                <header className="mb-4">
+                  <h3 className="text-xl font-medium text-slate-700">
+                    {item.class_name}
+                  </h3>
+                  <p className="font-semibold text-black text-md my-3">
+                    {item.instructor_name}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-400">Price: ${item.price}</span>
+                    <span className="text-slate-400">
+                      Available seats: {item.available_seats}
+                    </span>
+                  </div>
+                </header>
+              </div>
+              {/* Action base sized basic button */}
+              <div className="flex justify-end p-6 pt-0">
+                {user && (isAdmin || isInstructor) ? (
+                  <button
+                    onClick={() => handleButtonClick(item)}
+                    className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-none bg-green-600 px-5 text-sm font-medium tracking-wide text-white opacity-50 cursor-not-allowed"
+                    disabled
+                  >
+                    <span>Select class</span>
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleButtonClick(item)}
+                    className={`inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-none bg-green-600 px-5 text-sm font-medium tracking-wide text-white ${item.available_seats <= 0
                       ? "opacity-50 cursor-not-allowed"
                       : ""
-                    }`}
-                  disabled={item.available_seats <= 0}
-                >
-                  <span>Select class</span>
-                </button>
-              )}
+                      }`}
+                    disabled={item.available_seats <= 0}
+                  >
+                    <span>Select class</span>
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

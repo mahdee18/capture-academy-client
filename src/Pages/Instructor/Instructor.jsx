@@ -6,10 +6,10 @@ const Instructor = () => {
     return (
         <>
             <div className='text-center text-white my-10 py-10 bg-green-500'>
-                <h2 className='text-5xl font-bold'>Meet Our Expert Instructors</h2>
+                <h2 className='md:text-5xl text-3xl font-bold'>Meet Our Expert Instructors</h2>
                 <p className='text-lg py-3'> Experience the Art of Photography with Our Passionate Mentors</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:max-w-6xl mx-auto px-4 md:px-0">
             {data.map((instructor) => (
                 <div
                     className="overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200"

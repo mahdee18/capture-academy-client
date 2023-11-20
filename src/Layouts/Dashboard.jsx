@@ -27,7 +27,7 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
-                <div className="drawer-side sticky">
+                <div className="drawer-side sticky bg-green-200">
                     <label htmlFor="my-drawer-2" className=""></label>
                     <ul className="menu p-4 w-80 h-full text-black  ">
                         {
@@ -37,9 +37,9 @@ const Dashboard = () => {
                                     <h3 className='text-2xl font-bold'>{user.displayName}</h3>
                                     <p>{user.email}</p>
                                 </div>
+                                <li><Link to="/"><IoIosHome></IoIosHome>  Home</Link></li>
                                 <li><Link to="/dashboard/manage-class"><FaUsers></FaUsers> Manage Class</Link></li>
                                 <li><Link to="/dashboard/manage-user"><BiAddToQueue></BiAddToQueue> Manage User</Link></li>
-                                <li><Link to="/"><IoIosHome></IoIosHome>  Home</Link></li>
                             </> :
                                 isInstructor ?
                                     <>

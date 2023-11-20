@@ -49,7 +49,7 @@ const Navbar = () => {
                         <li className="font-medium">
                             <NavLink
                                 active className="font-semibold hover:text-warning"
-                                to="/instructors"
+                                to="/instructor"
                             >
                                 Instructors
                             </NavLink>
@@ -57,7 +57,7 @@ const Navbar = () => {
                         <li className=" font-medium">
                             <NavLink
                                 activeClassName="font-semibold hover:text-warning"
-                                to="/classes"
+                                to="/allclasses"
                             >
                                 Classes
                             </NavLink>

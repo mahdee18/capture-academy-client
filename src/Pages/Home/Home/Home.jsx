@@ -3,6 +3,7 @@ import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import About from "../AboutUs/About";
 import Slider from "../Slider/Slider";
+import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <PopularClasses></PopularClasses>
             <PopularInstructor></PopularInstructor>
             <About></About>
+            <Testimonial></Testimonial>
             </div>
         </div>
     );

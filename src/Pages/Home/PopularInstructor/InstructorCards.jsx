@@ -3,14 +3,13 @@ import useData from '../../../Hooks/useData';
 
 const InstructorCards = () => {
     const [data] = useData();
-    console.log(data);
 
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
                 {data.map((instructor) => (
                     <div
-                        className="overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200"
+                        className="overflow-hidden bg-green-200 rounded shadow-md text-slate-500 shadow-slate-200"
                         key={instructor._id}
                     >
                         <figure>

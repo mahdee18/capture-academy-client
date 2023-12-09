@@ -4,6 +4,9 @@ import './index.css'
 import router from './Routers/Router.jsx'
 import { RouterProvider } from 'react-router-dom'
 import AuthProviders from './Providers/AuthProviders'
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import {
   QueryClient,
   QueryClientProvider,
@@ -14,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProviders>
       <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
+        <RouterProvider router={router} />
       </QueryClientProvider>
     </AuthProviders>
   </React.StrictMode>

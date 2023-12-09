@@ -2,13 +2,14 @@ import { Helmet } from "react-helmet";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import About from "../AboutUs/About";
-import Slider from "../Slider/Slider";
 import Testimonial from "../Testimonial/Testimonial";
+import SwiperSlider from "../Slider/SwiperSlider";
 
 const Home = () => {
     return (
         <div>
-            <Slider></Slider>
+            {/* <Slider></Slider> */}
+            <SwiperSlider></SwiperSlider>
             <Helmet>
                 <title>Capture Academy | Home</title>
             </Helmet>

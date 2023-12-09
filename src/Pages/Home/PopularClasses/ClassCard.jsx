@@ -12,7 +12,7 @@ const ClassCard = () => {
                 {approvedData.map((item) => (
                     <div
                         key={item._id}
-                        className='overflow-hidden rounded bg-transparent text-slate-500 shadow-md shadow-slate-200 relative group'
+                        className='overflow-hidden rounded bg-transparent text-slate-500 shadow-md shadow-slate-200 relative group bg-gray-200'
                     >
                         {/* Image */}
                         <figure>

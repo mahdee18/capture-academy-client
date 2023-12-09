@@ -6,6 +6,7 @@ import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { Fade } from "react-awesome-reveal";
 
 const AllClasses = () => {
   const [data] = useData();
@@ -62,7 +63,7 @@ const AllClasses = () => {
 
 
   return (
-    <>
+    <Fade direction="up" triggerOnce>
       <div className='text-center text-white my-10 py-10 bg-green-500'>
         <h2 className='md:text-5xl text-3xl font-bold'>Our Popular Class</h2>
         <p className='text-lg py-3'> Experience the Art of Photography with Our Passionate Mentors</p>
@@ -134,34 +135,11 @@ const AllClasses = () => {
                   )}
                 </div>
               </div>
-              {/* Action base sized basic button */}
-              {/* <div className="flex justify-end p-6 pt-0">
-                {user && (isAdmin || isInstructor) ? (
-                  <button
-                    onClick={() => handleButtonClick(item)}
-                    className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-none bg-green-600 px-5 text-sm font-medium tracking-wide text-white opacity-50 cursor-not-allowed"
-                    disabled
-                  >
-                    <span>Select class</span>
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => handleButtonClick(item)}
-                    className={`inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-none bg-green-600 px-5 text-sm font-medium tracking-wide text-white ${item.available_seats <= 0
-                      ? "opacity-50 cursor-not-allowed"
-                      : ""
-                      }`}
-                    disabled={item.available_seats <= 0}
-                  >
-                    <span>Select class</span>
-                  </button>
-                )}
-              </div> */}
             </div>
           ))}
         </div>
       </div>
-    </>
+    </Fade>
   );
 };
 

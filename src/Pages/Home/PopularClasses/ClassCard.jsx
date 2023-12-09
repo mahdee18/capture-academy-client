@@ -1,12 +1,13 @@
 import React from 'react';
 import useData from '../../../Hooks/useData';
+import { Fade } from 'react-awesome-reveal';
 
 const ClassCard = () => {
     const [data] = useData()
     const approvedData = data.filter(item => item.class_status === 'approved')
 
     return (
-        <>
+        <Fade direction="up" triggerOnce>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
                 {approvedData.map((item) => (
                     <div
@@ -50,7 +51,7 @@ const ClassCard = () => {
                 ))}
             </div>
 
-        </>
+        </Fade>
     );
 };
 

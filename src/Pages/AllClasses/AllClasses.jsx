@@ -77,7 +77,7 @@ const AllClasses = () => {
           {approvedData.map((item) => (
             <div
               key={item._id}
-              className={`overflow-hidden rounded text-slate-500 shadow-md shadow-slate-200 ${item.available_seats <= 0
+              className={`overflow-hidden rounded text-slate-500 shadow-md shadow-slate-200 relative group ${item.available_seats <= 0
                 ? " bg-red-200"
                 : "border-0"
                 }`}
@@ -100,15 +100,42 @@ const AllClasses = () => {
                     {item.instructor_name}
                   </p>
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-400">Price: ${item.price}</span>
-                    <span className="text-slate-400">
-                      Available seats: {item.available_seats}
-                    </span>
+                    <span className="text-white py-3 px-3 bg-green-600 absolute top-5 right-0 rounded-l-lg">Price: ${item.price}</span>
                   </div>
                 </header>
               </div>
+
+              {/* Text overlay */}
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-80 duration-500 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 transition-transform">
+                <div className="text-white text-center px-4">
+
+                  <span className="text-white py-3 px-2 bg-black text-center text-lg font-semibold">
+                    Available seats: {item.available_seats}
+                  </span>
+                  {user && (isAdmin || isInstructor) ? (
+                    <button
+                      onClick={() => handleButtonClick(item)}
+                      className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-none bg-green-600 px-5 text-sm font-medium tracking-wide text-white opacity-50 cursor-not-allowed"
+                      disabled
+                    >
+                      <span>Select class</span>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleButtonClick(item)}
+                      className={`btn bg-green-600 text-white hover:text-black btn-block mt-10 ${item.available_seats <= 0
+                        ? "opacity-50 cursor-not-allowed"
+                        : ""
+                        }`}
+                      disabled={item.available_seats <= 0}
+                    >
+                      <span>Select class</span>
+                    </button>
+                  )}
+                </div>
+              </div>
               {/* Action base sized basic button */}
-              <div className="flex justify-end p-6 pt-0">
+              {/* <div className="flex justify-end p-6 pt-0">
                 {user && (isAdmin || isInstructor) ? (
                   <button
                     onClick={() => handleButtonClick(item)}
@@ -129,7 +156,7 @@ const AllClasses = () => {
                     <span>Select class</span>
                   </button>
                 )}
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

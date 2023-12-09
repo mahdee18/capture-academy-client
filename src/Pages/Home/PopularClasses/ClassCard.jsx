@@ -22,7 +22,7 @@ const ClassCard = () => {
                             />
                         </figure>
                         {/* Body */}
-                        <div className="p-6 ">
+                        <div className="p-3 ">
                             <header className="mb-4">
                                 <h3 className="text-xl font-medium text-slate-700">
                                     {item.class_name}
@@ -36,7 +36,16 @@ const ClassCard = () => {
                             </header>
                         </div>
 
+                        {/* Text overlay */}
+                        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-80 duration-500 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 transition-transform">
+                            <div className="text-white text-center px-4">
 
+                                <span className="text-white py-3 px-2 bg-black text-center text-lg font-semibold">
+                                    Available seats: {item.available_seats}
+                                </span>
+                                <button className='btn bg-green-600 text-white hover:text-black btn-block mt-10'>Select This Class</button>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>

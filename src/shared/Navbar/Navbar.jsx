@@ -14,7 +14,7 @@ const Navbar = () => {
             });
     };
     return (
-        <header className="nav sticky top-0 z-50 text-[#1f2937]">
+        <header className="nav sticky top-0 z-50 text-[#1f2937] bg-gray-300">
             <nav className="navbar max-w-7xl mx-auto flex justify-between items-center">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,26 +37,26 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                     >
-                        <li className=" font-medium">
+                        <li className=" font-bold">
                             <NavLink
                                 exact
-                                active className="active  font-semibold hover:text-warning"
+                                active className="active  font-bold hover:text-warning"
                                 to="/"
                             >
                                 Home
                             </NavLink>
                         </li>
-                        <li className="font-medium">
+                        <li className="font-bold">
                             <NavLink
-                                active className="font-semibold hover:text-warning"
+                                active className="font-bold hover:text-warning"
                                 to="/instructor"
                             >
                                 Instructors
                             </NavLink>
                         </li>
-                        <li className=" font-medium">
+                        <li className=" font-bold">
                             <NavLink
-                                activeClassName="font-semibold hover:text-warning"
+                                activeClassName="font-bold hover:text-warning"
                                 to="/allclasses"
                             >
                                 Classes
@@ -64,9 +64,9 @@ const Navbar = () => {
                         </li>
 
                         {user && (
-                            <li className=" font-medium">
+                            <li className=" font-bold">
                                 <NavLink
-                                    activeClassName="active font-semibold hover:text-warning"
+                                    activeClassName="active font-bold hover:text-warning"
                                     to="/dashboard"
                                 >
                                     Dashboard
@@ -83,25 +83,25 @@ const Navbar = () => {
                 </div>
                 <div className="hidden lg:flex me-auto">
                     <ul className="flex items-center justify-start gap-6 px-1">
-                        <li className="font-medium">
+                        <li className="font-bold">
                             <NavLink
-                                activeClassName="active font-semibold hover:text-warning"
+                                activeClassName="active font-bold hover:text-warning"
                                 to="/"
                             >
                                 Home
                             </NavLink>
                         </li>
-                        <li className=" font-medium">
+                        <li className=" font-bold">
                             <NavLink
-                                activeClassName="font-semibold hover:text-warning"
+                                activeClassName="font-bold hover:text-warning"
                                 to="/instructor"
                             >
                                 Instructors
                             </NavLink>
                         </li>
-                        <li className=" font-medium">
+                        <li className=" font-bold">
                             <NavLink
-                                activeClassName="font-semibold hover:text-warning"
+                                activeClassName="font-bold hover:text-warning"
                                 to="/allclasses"
                             >
                                 Classes
@@ -109,9 +109,9 @@ const Navbar = () => {
                         </li>
 
                         {user && (
-                            <li className="font-medium">
+                            <li className="font-bold">
                                 <NavLink
-                                    activeClassName="active font-semibold hover:text-warning"
+                                    activeClassName="active font-bold hover:text-warning"
                                     to="/dashboard"
                                 >
                                     Dashboard
@@ -134,14 +134,14 @@ const Navbar = () => {
                                     />
                                     <button
                                         onClick={handleLogOut}
-                                        className="btn border-0 text-white hover:text-black hover:border hover:border-warning bg-green-600 px-4 py-1.5 md:px-6 md:py-2 font-semibold rounded flex items-center gap-1 hover:btn-outline"
+                                        className="btn border-0 text-white hover:text-black hover:border hover:border-warning bg-green-600 px-4 py-1.5 md:px-6 md:py-2 font-bold rounded flex items-center gap-1 hover:btn-outline"
                                     >
                                         Logout
                                     </button>
                                 </span>
                             ) : (
                                 <Link to="/login">
-                                    <button className="btn border-0 text-white hover:text-black hover:border hover:border-warning bg-green-600 rounded px-4 py-1.5 md:px-6 md:py-2 font-semibold  flex items-center gap-1 hover:btn-outline">
+                                    <button className="btn border-0 text-white hover:text-black hover:border hover:border-warning bg-green-600 rounded px-4 py-1.5 md:px-6 md:py-2 font-bold  flex items-center gap-1 hover:btn-outline">
                                         Login
                                     </button>
                                 </Link>

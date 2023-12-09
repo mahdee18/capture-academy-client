@@ -8,7 +8,6 @@ import SwiperSlider from "../Slider/SwiperSlider";
 const Home = () => {
     return (
         <div>
-            {/* <Slider></Slider> */}
             <SwiperSlider></SwiperSlider>
             <Helmet>
                 <title>Capture Academy | Home</title>

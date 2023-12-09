@@ -16,7 +16,7 @@ const SwiperSlider = () => {
             }}
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-            
+
         >
             <SwiperSlide>
 
@@ -39,7 +39,7 @@ const SwiperSlider = () => {
                         </p>
                         <Link
                             to="/allclasses"
-                            className="btn bg-green-600 text-white md:btn-lg btn-gradient rounded-full"
+                            className="btn bg-green-600 text-white md:btn-lg btn-gradient rounded-full hover:text-black"
                         >
                             Explore Classes
                         </Link>
@@ -67,7 +67,7 @@ const SwiperSlider = () => {
                         </p>
                         <Link
                             to="/allclasses"
-                            className="btn bg-green-600 text-white md:btn-lg btn-gradient rounded-full"
+                            className="btn bg-green-600 text-white md:btn-lg btn-gradient rounded-full hover:text-black"
                         >
                             Explore Classes
                         </Link>
@@ -95,7 +95,35 @@ const SwiperSlider = () => {
                         </p>
                         <Link
                             to="/allclasses"
-                            className="btn bg-green-600 text-white md:btn-lg btn-gradient rounded-full"
+                            className="btn bg-green-600 text-white md:btn-lg btn-gradient rounded-full hover:text-black"
+                        >
+                            Explore Classes
+                        </Link>
+                    </div>
+                </div>
+            </SwiperSlide>
+            <SwiperSlide>
+
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-max lg:h-[650px] pt-8 pb-12 lg:py-0 bg-gray-200">
+                    <div className="w-full lg:w-4/5 mx-auto p-6 rounded-xl bg-neutral/5">
+                        <img
+                            src='https://i.ytimg.com/vi/AmHo91ARwK4/maxresdefault.jpg'
+                            alt=""
+                            className="w-full aspect-square object-cover object-center"
+                        />
+                    </div>
+                    <div className="space-y-8">
+                        <h1 className="font-extrabold text-4xl">
+                            <Fade cascade damping={0.1} className="inline">
+                            The Artistry of Still Life Photography
+                            </Fade>
+                        </h1>
+                        <p className="text-lg">
+                        Elevating Ordinary Objects into Extraordinary Narratives of Beauty and Meaning
+                        </p>
+                        <Link
+                            to="/allclasses"
+                            className="btn bg-green-600 text-white md:btn-lg btn-gradient rounded-full hover:text-black"
                         >
                             Explore Classes
                         </Link>

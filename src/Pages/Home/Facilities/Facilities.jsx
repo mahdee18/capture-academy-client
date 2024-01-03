@@ -1,6 +1,6 @@
 import React from 'react';
 import './Facilities.css'
-import { FaLanguage, FaChalkboardTeacher } from 'react-icons/fa';
+import { FaChalkboardTeacher, FaPhotoVideo } from 'react-icons/fa';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { GiFlexibleLamp } from 'react-icons/gi';
 import { Fade } from 'react-awesome-reveal';
@@ -8,21 +8,21 @@ import { Fade } from 'react-awesome-reveal';
 const Facilities = () => {
     return (
         <div className='grid md:grid-cols-4 gap-4 my-10 px-6 md:px-14'>
-            <div data-aos="zoom-out" className='text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
+            <div data-aos="zoom-out" className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
                 <Fade direction='right' triggerOnce>
                     <div className='flex flex-col items-center justify-center'>
                         <div className='mb-4'>
-                            <FaLanguage className='text-[80px] transition-transform duration-300 transform-gpu icon'></FaLanguage>
+                            <FaPhotoVideo  className='text-[80px] transition-transform duration-300 transform-gpu icon'></FaPhotoVideo >
                         </div>
                         <div>
-                            <h1 className='text-2xl font-bold my-3'>Language Diversity</h1>
-                            <p>Discover the Joy of Learning Different Languages that Inspire You</p>
+                            <h1 className='text-2xl font-bold my-3'>Photographic Diversity</h1>
+                            <p>Discover the Joy of Learning Different Photography that Inspire You</p>
                         </div>
                     </div>
                 </Fade>
 
             </div>
-            <div data-aos="zoom-out" className='text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
+            <div data-aos="zoom-out" className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
                 <Fade direction='up' triggerOnce>
                     <div className='flex flex-col items-center justify-center'>
                         <div className='mb-4'>
@@ -30,13 +30,13 @@ const Facilities = () => {
                         </div>
                         <div>
                             <h1 className='text-2xl font-bold my-3'>Expert Instructor</h1>
-                            <p>Learn from Seasoned Professionals and Industry Leaders in Language Education</p>
+                            <p>Learn from Seasoned Professionals and Industry Leaders in Photography courses</p>
                         </div>
                     </div>
                 </Fade>
 
             </div>
-            <div data-aos="zoom-out" className='text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
+            <div data-aos="zoom-out" className=' bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
                 <Fade direction='down' triggerOnce>
                     <div className='flex flex-col items-center justify-center'>
                         <div className='mb-4'>
@@ -50,7 +50,7 @@ const Facilities = () => {
                 </Fade>
 
             </div>
-            <div data-aos="zoom-out" className='text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
+            <div data-aos="zoom-out" className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
                 <Fade direction='left' triggerOnce>
                     <div className='flex flex-col items-center justify-center'>
                         <div className='mb-4'>
@@ -58,7 +58,7 @@ const Facilities = () => {
                         </div>
                         <div>
                             <h1 className='text-2xl font-bold my-3'>Flexible Option</h1>
-                            <p>Customize Your Language Journey to Fit Your Busy Schedule and Learning Style</p>
+                            <p>Customize Your Photographic Journey to Fit Your Busy Schedule and Learning Style</p>
                         </div>
                     </div>
                 </Fade>

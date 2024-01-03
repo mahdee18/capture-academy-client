@@ -8,11 +8,11 @@ const ClassCard = () => {
 
     return (
         <Fade direction="up" triggerOnce>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 px-4 md:px-0">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 px-4 md:px-0">
                 {approvedData.map((item) => (
                     <div
                         key={item._id}
-                        className='overflow-hidden rounded bg-transparent text-slate-500 shadow-md shadow-slate-200 relative group bg-gray-200'
+                        className='overflow-hidden rounded bg-transparent text-slate-500 shadow-md shadow-slate-200 relative group '
                     >
                         {/* Image */}
                         <figure>
@@ -23,7 +23,7 @@ const ClassCard = () => {
                             />
                         </figure>
                         {/* Body */}
-                        <div className="p-3 ">
+                        <div className="p-3 bg-gray-200">
                             <header className="mb-4">
                                 <h3 className="text-xl font-medium text-slate-700">
                                     {item.class_name}

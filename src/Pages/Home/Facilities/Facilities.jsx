@@ -8,7 +8,7 @@ import { Fade } from 'react-awesome-reveal';
 const Facilities = () => {
     return (
         <div className='grid md:grid-cols-4 gap-4 my-10 px-6 md:px-14'>
-            <div data-aos="zoom-out" className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
+            <div  className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-green-100 parent-div'>
                 <Fade direction='right' triggerOnce>
                     <div className='flex flex-col items-center justify-center'>
                         <div className='mb-4'>
@@ -22,7 +22,7 @@ const Facilities = () => {
                 </Fade>
 
             </div>
-            <div data-aos="zoom-out" className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
+            <div  className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-green-100 parent-div'>
                 <Fade direction='up' triggerOnce>
                     <div className='flex flex-col items-center justify-center'>
                         <div className='mb-4'>
@@ -36,7 +36,7 @@ const Facilities = () => {
                 </Fade>
 
             </div>
-            <div data-aos="zoom-out" className=' bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
+            <div  className=' bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-green-100 parent-div'>
                 <Fade direction='down' triggerOnce>
                     <div className='flex flex-col items-center justify-center'>
                         <div className='mb-4'>
@@ -50,7 +50,7 @@ const Facilities = () => {
                 </Fade>
 
             </div>
-            <div data-aos="zoom-out" className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-cyan-100 parent-div'>
+            <div  className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-green-100 parent-div'>
                 <Fade direction='left' triggerOnce>
                     <div className='flex flex-col items-center justify-center'>
                         <div className='mb-4'>

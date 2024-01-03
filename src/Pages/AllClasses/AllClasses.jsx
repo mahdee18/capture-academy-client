@@ -7,6 +7,7 @@ import useInstructor from "../../Hooks/useInstructor";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import { Fade } from "react-awesome-reveal";
+import SectionTitle from "../../components/SectionTitle";
 
 const AllClasses = () => {
   const [data] = useData();
@@ -64,11 +65,7 @@ const AllClasses = () => {
 
   return (
     <Fade direction="up" triggerOnce>
-      <div className='text-center text-white my-10 py-10 bg-green-500'>
-        <h2 className='md:text-5xl text-3xl font-bold'>Our Popular Class</h2>
-        <p className='text-lg py-3'> Experience the Art of Photography with Our Passionate Mentors</p>
-      </div>
-
+      <SectionTitle image={'https://th.bing.com/th/id/OIP.LYZx7kgFGF2M01M3RmgqKQHaFj?rs=1&pid=ImgDetMain'} title={'Our Popular Class'} subtitle={'Experience the Art of Photography with Our Passionate Mentors'} ></SectionTitle>
       <div className="max-w-6xl mx-auto px-4 my-20">
         <Helmet>
           <title>Capture Academy - All Classes</title>

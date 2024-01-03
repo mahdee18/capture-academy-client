@@ -12,6 +12,7 @@ const SectionTitle = ({image, title, subtitle }) => {
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
                         <h2 className='md:text-5xl text-3xl font-bold'>{title}</h2>
                         <p className='text-lg py-3'>{subtitle}</p>
+                        
                     </div>
                 </div>
             </section>

@@ -59,11 +59,11 @@ const Dashboard = () => {
                                             <h3 className='text-2xl font-bold'>{user.displayName}</h3>
                                             <p>{user.email}</p>
                                         </div>
+                                        <li><Link to="/"> <IoIosHome></IoIosHome> Home</Link></li>
                                         <li><Link to='enrolled-class'><BsBookmarkPlusFill></BsBookmarkPlusFill> My Enrolled Class</Link></li>
                                         <li><Link to='selected-class'><BiSelectMultiple></BiSelectMultiple> My Selected Class</Link></li>
                                         <li><Link to='payment-history'><FaHistory></FaHistory> Payment History</Link></li>
 
-                                        <li><Link to="/"> <IoIosHome></IoIosHome> Home</Link></li>
                                     </>
 
                         }

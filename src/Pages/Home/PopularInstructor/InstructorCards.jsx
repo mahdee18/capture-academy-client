@@ -10,7 +10,7 @@ const InstructorCards = () => {
         <Fade direction="up" triggerOnce>
             <div>
 
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0'>
                     {data.map((instructor) => (
                         <div
                             className="w-full relative mt-16 bg-gray-200 rounded-xl pt-16 text-center p-6 my-10"

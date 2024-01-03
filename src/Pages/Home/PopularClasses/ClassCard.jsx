@@ -8,7 +8,7 @@ const ClassCard = () => {
 
     return (
         <Fade direction="up" triggerOnce>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 px-4 md:px-0">
                 {approvedData.map((item) => (
                     <div
                         key={item._id}

@@ -76,9 +76,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="my-auto me-auto">
+                    <Link to={'/'}>
+                    
                     <div className="flex md:flex-col items-center ml-2v">
                         <img src="https://clipartcraft.com/images/transparent-ca-logo-1.png" className="w-16 h-16 lg:w-24 lg:h-18" alt="" />
                     </div>
+                    </Link>
                     <DarkMode></DarkMode>
                 </div>
                 <div className="hidden lg:flex me-auto">

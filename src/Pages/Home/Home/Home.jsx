@@ -6,6 +6,7 @@ import Testimonial from "../Testimonial/Testimonial";
 import SwiperSlider from "../Slider/SwiperSlider";
 import Facilities from "../Facilities/Facilities";
 import CallToAction from "../CallToAction/CallToAction";
+import ParralaxBanner from "../ParralaxBanner/ParralaxBanner";
 
 const Home = () => {
     return (
@@ -17,9 +18,12 @@ const Home = () => {
             <div className="max-w-6xl mx-auto">
 
             <PopularClasses></PopularClasses>
+            </div>
+            <ParralaxBanner></ParralaxBanner>
+            <div className="max-w-6xl mx-auto">
             <PopularInstructor></PopularInstructor>
-            <About></About>
             <Facilities></Facilities>
+            <About></About>
             <Testimonial></Testimonial>
             </div>
             <CallToAction></CallToAction>

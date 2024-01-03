@@ -5,6 +5,7 @@ import About from "../AboutUs/About";
 import Testimonial from "../Testimonial/Testimonial";
 import SwiperSlider from "../Slider/SwiperSlider";
 import Facilities from "../Facilities/Facilities";
+import CallToAction from "../CallToAction/CallToAction";
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
             <Facilities></Facilities>
             <Testimonial></Testimonial>
             </div>
+            <CallToAction></CallToAction>
         </div>
     );
 };

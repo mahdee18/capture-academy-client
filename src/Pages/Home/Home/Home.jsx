@@ -7,6 +7,7 @@ import SwiperSlider from "../Slider/SwiperSlider";
 import Facilities from "../Facilities/Facilities";
 import CallToAction from "../CallToAction/CallToAction";
 import ParralaxBanner from "../ParralaxBanner/ParralaxBanner";
+import NewsLetter from "../Newsletter/NewsLetter";
 
 const Home = () => {
     return (
@@ -27,6 +28,7 @@ const Home = () => {
             <Testimonial></Testimonial>
             </div>
             <CallToAction></CallToAction>
+            <NewsLetter></NewsLetter>
         </div>
     );
 };

@@ -24,11 +24,11 @@ const Home = () => {
             <div className="max-w-6xl mx-auto">
             <PopularInstructor></PopularInstructor>
             <Facilities></Facilities>
+            <NewsLetter></NewsLetter>
             <About></About>
             <Testimonial></Testimonial>
             </div>
             <CallToAction></CallToAction>
-            <NewsLetter></NewsLetter>
         </div>
     );
 };

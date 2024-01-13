@@ -75,7 +75,7 @@ const AllClasses = () => {
           {approvedData.map((item) => (
             <div
               key={item._id}
-              className={`overflow-hidden rounded text-slate-500 shadow-md shadow-slate-200 relative group ${item.available_seats <= 0
+              className={`overflow-hidden rounded bg-gray-200 text-slate-500 shadow-md shadow-slate-200 relative group ${item.available_seats <= 0
                 ? " bg-red-200"
                 : "border-0"
                 }`}

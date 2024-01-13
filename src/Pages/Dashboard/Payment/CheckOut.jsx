@@ -110,7 +110,7 @@ const CheckOut = ({ price, items }) => {
         />
         <div className="text-center">
           <button
-            className="btn btn-primary mt-5 w-48"
+            className="btn btn-primary bg-green-500 border-0 mt-5 w-48"
             type="submit"
             disabled={!stripe || !clientSecret || processing}
           >

@@ -21,7 +21,6 @@ const PymentHistory = () => {
                     <thead>
                         <tr className='text-center'>
                             <th>#</th>
-                            <th>Instructor Name</th>
                             <th>Class Name</th>
                             <th>Price</th>
                             <th>Email</th>
@@ -34,12 +33,9 @@ const PymentHistory = () => {
                         {data.map((user, index) => (
                             <tr key={index} className='text-center'>
                                 <td>{index + 1}</td>
-                                <td>
-                                    <span>{user.InstructorName}</span>
-                                </td>
                                 <td>{user.className}</td>
 
-                                <td>{user.price}</td>
+                                <td>${user.price}</td>
                                 <td>{user.email}</td>
                                 <td>{user.data}</td>
                                 <td>{user.transectionId}</td>

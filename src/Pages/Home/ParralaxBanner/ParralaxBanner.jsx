@@ -8,7 +8,7 @@ const ParralaxBanner = () => {
                 <div className="absolute inset-0 bg-black opacity-70"></div>
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
                     <h2 className="text-xl font-semibold">STARTING ONLINE LEARNING</h2>
-                    <h1 className="text-4xl font-bold my-5">ENHANCE YOUR SKILLS WITH BEST ONLINE COURSES</h1>
+                    <h1 className="text-2xl lg:text-4xl font-bold my-5">ENHANCE YOUR SKILLS WITH BEST ONLINE COURSES</h1>
                     <Link to='/allclasses' className='btn bg-green-600 text-white hover:bg-green-800'>Get Start Now!!</Link>
                 </div>
             </div>

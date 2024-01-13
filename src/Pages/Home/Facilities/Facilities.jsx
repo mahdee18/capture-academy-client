@@ -7,7 +7,7 @@ import { Fade } from 'react-awesome-reveal';
 
 const Facilities = () => {
     return (
-        <div className='grid md:grid-cols-4 gap-4 my-10 px-6 md:px-14'>
+        <div className='grid md:grid-cols-4 gap-8  my-10 px-6 md:px-14'>
             <div  className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-green-100 parent-div'>
                 <Fade direction='right' triggerOnce>
                     <div className='flex flex-col items-center justify-center'>

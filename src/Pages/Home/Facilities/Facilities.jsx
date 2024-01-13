@@ -8,7 +8,12 @@ import { Fade } from 'react-awesome-reveal';
 const Facilities = () => {
     return (
         <>
-
+            <Fade direction='right' triggerOnce>
+                <div className='text-center my-10 py-10'>
+                    <h2 className='text-4xl font-bold'>Our Cutting-edge Facilities Await You</h2>
+                    <p className='text-lg py-3'>Immerse in Creativity and Flexibility for a Unique Learning Journey</p>
+                </div>
+            </Fade>
             <div className='grid md:grid-cols-4 gap-6  my-10 px-6 md:px-14'>
 
                 <div className='bg-gray-200 text-center border p-5 shadow-xl hover:shadow-xl hover:shadow-green-100 parent-div'>

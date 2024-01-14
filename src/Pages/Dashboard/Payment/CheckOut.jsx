@@ -89,7 +89,7 @@ const CheckOut = ({ price, items }) => {
   };
 
   return (
-    <div className="border-solid border-5 shadow border-gray-100 p-20 bg-white ml-20">
+    <div className="border-solid border-5 shadow border-green-700 p-20 bg-gray-100 ml-20">
       <form onSubmit={handleSubmit}>
         <p className="text-red-600 text-center">{cardError}</p>
         <CardElement

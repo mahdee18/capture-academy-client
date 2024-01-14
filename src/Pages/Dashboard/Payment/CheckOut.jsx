@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const CheckOut = ({ price, items }) => {
   console.log(items);
-  const {_id , class_name , class_image , instructor_name  } = items;
+  const { _id, class_name, class_image, instructor_name } = items;
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState();
@@ -66,15 +66,15 @@ const CheckOut = ({ price, items }) => {
         email: user.email,
         transectionId: paymentIntent.id,
         price,
-        data : new Date(),
+        data: new Date(),
         className: class_name,
         classId: _id,
         InstructorName: instructor_name,
-        image: class_image, 
+        image: class_image,
 
-        
+
       };
-   
+
 
       axiosSecure.post("/paymenthistory", payment).then((res) => {
         if (res.data.insertedId) {
@@ -89,9 +89,10 @@ const CheckOut = ({ price, items }) => {
   };
 
   return (
-    <div className="border-solid border-5 shadow border-green-700 p-20 bg-gray-100 ml-20">
+    <div className="border border-5 shadow border-green-200 p-20 bg-gray-100 ml-20">
+      <p className="text-red-600 text-center mb-10">{cardError}</p>
+
       <form onSubmit={handleSubmit}>
-        <p className="text-red-600 text-center">{cardError}</p>
         <CardElement
           options={{
             style: {

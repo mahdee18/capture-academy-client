@@ -14,8 +14,8 @@ const Payment = () => {
 
   return (
     <div className="w-2/3">
-      <h2 className="text-3xl font-bold text-center mb-10">
-        Make Your payment Done !
+      <h2 className="text-3xl font-bold text-center my-10">
+        Make Your payment By Stripe !
       </h2>
       <Elements stripe={stripePromise}>
         <CheckOut price={Cartprice} items={stateValue}></CheckOut>

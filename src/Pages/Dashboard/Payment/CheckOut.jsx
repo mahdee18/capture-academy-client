@@ -99,7 +99,7 @@ const CheckOut = ({ price, items }) => {
                 fontSize: "16px",
                 color: "#424770",
                 "::placeholder": {
-                  color: "#aab7c4",
+                  color: "#22c55e",
                 },
               },
               invalid: {
@@ -110,7 +110,7 @@ const CheckOut = ({ price, items }) => {
         />
         <div className="text-center">
           <button
-            className="btn btn-primary bg-green-500 border-0 mt-5 w-48"
+            className="btn btn-primary bg-green-500 border-0 mt-5 px-10"
             type="submit"
             disabled={!stripe || !clientSecret || processing}
           >

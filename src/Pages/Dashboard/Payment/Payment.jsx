@@ -15,15 +15,18 @@ const Payment = () => {
 
   return (
     <div className="w-2/3">
-      <Fade direction="up"  triggerOnce>
+      <Fade direction="up" triggerOnce>
 
-      <h2 className="text-3xl font-bold text-center my-10">
-        Make Your payment By Stripe !
-      </h2>
+        <h2 className="text-3xl font-bold text-center my-10">
+          Make Your payment By Stripe !
+        </h2>
       </Fade>
-      <Elements stripe={stripePromise}>
-        <CheckOut price={Cartprice} items={stateValue}></CheckOut>
-      </Elements>
+      <Fade direction="left" triggerOnce>
+
+        <Elements stripe={stripePromise}>
+          <CheckOut price={Cartprice} items={stateValue}></CheckOut>
+        </Elements>
+      </Fade>
     </div>
   );
 };

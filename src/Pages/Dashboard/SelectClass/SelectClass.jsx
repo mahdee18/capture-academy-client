@@ -64,7 +64,7 @@ const SelectClass = () => {
                                 </td>
                                 <td>{user.instructor_name}</td>
 
-                                <td>{user.price}</td>
+                                <td>${user.price}</td>
 
                                 <td>{user.role == 'admin' ? 'admin' : <button onClick={() => handleDelete(user)} className="btn btn-
                                     bg-red-600 text-white border-0 btn-sm hover:bg-black">

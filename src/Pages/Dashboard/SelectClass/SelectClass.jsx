@@ -71,7 +71,7 @@ const SelectClass = () => {
                                     <FaTrash></FaTrash>
                                 </button>}</td>
                                 <td>
-                                    <Link to="/dashboard/payment" state={user}><button className='btn btn-warning btn-sm'>Pay</button></Link>
+                                    <Link to="/dashboard/payment" state={user}><button className='btn btn-warning btn-sm text-white'>Pay</button></Link>
                                 </td>
                             </tr>
                         ))}

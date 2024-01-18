@@ -173,7 +173,6 @@ const AddClass = () => {
                             </label>
                         </div>
                     </div>
-                    {/* Details Description field */}
                     <div className="relative my-6">
                         <input
                             type="text"

@@ -50,7 +50,6 @@ const AddClass = () => {
     };
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-[750px] mx-auto overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-400">
-            {/* Body*/}
             <div className="p-6">
                 <Helmet>
                     <title>Capture Academy | Add Class</title>
@@ -60,7 +59,6 @@ const AddClass = () => {
                 </header>
                 <div className="flex flex-col">
                     <div className='flex gap-4 w-full'>
-                        {/* Input field */}
                         <div className="relative my-6 w-1/2">
                             <input
                                 id='class_name'

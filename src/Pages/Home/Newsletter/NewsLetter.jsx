@@ -2,6 +2,9 @@ import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 
 const NewsLetter = () => {
+    const handleSubscribe = async () => {
+
+    }
     return (
         <section className="py-14 bg-gray-200">
             <div className="max-w-screen-xl mx-auto px-4 justify-between items-center gap-12 md:px-8 md:flex">
@@ -30,9 +33,9 @@ const NewsLetter = () => {
                                     className="w-full pl-12 pr-3 py-2 text-gray-500 border-gray-300 outline-none border focus:border-green-600 shadow-sm rounded-lg sm:max-w-xs"
                                 />
                             </div>
-                            <button className="block w-full py-3 px-4 font-medium text-sm text-center text-white bg-green-500 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow sm:w-auto md:w-full">
-                                Subscribe
-                            </button>
+                            <input
+                                type="submit"
+                                className="block w-full py-3 px-4 font-medium text-sm text-center text-white bg-green-500 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow sm:w-auto md:w-full" onClick={handleSubscribe} value='Subscribe' />
                         </form>
                     </div>
                 </Fade>

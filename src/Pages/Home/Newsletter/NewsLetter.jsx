@@ -24,7 +24,7 @@ const NewsLetter = () => {
                 if (data.acknowledged == true) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Toy Added successfully!!',
+                        text: 'Congrats! You have subscribed our newsletter successfully!!',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })

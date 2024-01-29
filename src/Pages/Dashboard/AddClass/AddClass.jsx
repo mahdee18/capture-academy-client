@@ -20,7 +20,7 @@ const AddClass = () => {
             feedback: '',
             class_status: "pending",
             enrolled_student: 0,
-        };
+        }; 
         console.log(newClass);
         try {
             const res = await fetch("https://capture-academy-server-eta.vercel.app/alldata", {

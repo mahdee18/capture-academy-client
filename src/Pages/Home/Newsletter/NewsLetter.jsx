@@ -7,6 +7,10 @@ const NewsLetter = () => {
         const form = event.target;
         const email = form.querySelector('input[type=email]').value;
         console.log(email);
+        const userEmail = {
+            email: email,
+        }
+        console.log(userEmail)
     };
 
     return (

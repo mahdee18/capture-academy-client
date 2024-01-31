@@ -12,6 +12,7 @@ const NewsLetter = () => {
             email: email,
         }
         console.log(userEmail)
+        // POST operation for user email
         fetch("https://capture-academy-server-qnoic6hvs-mahdee18.vercel.app/news-letter-email", {
             method: "POST",
             headers: {

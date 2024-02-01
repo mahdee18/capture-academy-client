@@ -22,7 +22,31 @@ const AddClass = () => {
             enrolled_student: 0,
         }; 
         console.log(newClass);
+        try {
+            const res = await fetch("https://capture-academy-server-eta.vercel.app/alldata", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newClass),
+            });
 
+            if (res.ok) {
+                console.log("Class added successfully");
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `New class added!`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                reset(); // Reset the form fields
+            } else {
+                console.log("Error:", res.status);
+            }
+        } catch (error) {
+            console.log("Error:", error);
+        }
     };
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-[750px] mx-auto overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-400">

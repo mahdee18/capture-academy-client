@@ -63,7 +63,7 @@ const NewsLetter = () => {
                             <input
                                 type="submit"
                                 className="block w-full py-3 px-4 font-medium text-sm text-center text-white bg-green-500 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow sm:w-auto md:w-full"
-                                value='Subscribe'
+                                value='Subscribe Now'
                             />
                         </form>
                     </div>

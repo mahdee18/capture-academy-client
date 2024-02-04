@@ -3,6 +3,7 @@ import { Fade } from 'react-awesome-reveal';
 import Swal from 'sweetalert2';
 
 const NewsLetter = () => {
+    
     const handleSubscribe = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -33,6 +34,7 @@ const NewsLetter = () => {
             })
     }
     return (
+
         <section className="py-14 bg-gray-200">
             <div className="max-w-screen-xl mx-auto px-4 justify-between items-center gap-12 md:px-8 md:flex">
                 <Fade direction='left' triggerOnce >

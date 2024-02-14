@@ -47,7 +47,6 @@ const NewsLetter = () => {
                         </p>
                     </div>
                 </Fade>
-
                 <Fade direction='right' triggerOnce >
                     <div className="mt-6 md:mt-0">
                         <form onSubmit={handleSubscribe} className="items-center gap-x-3 space-y-3 sm:space-y-0 md:space-y-3 sm:flex md:block">

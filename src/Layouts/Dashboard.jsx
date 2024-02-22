@@ -32,6 +32,7 @@ const Dashboard = () => {
                     <ul className="menu p-4 w-80 h-full text-black  ">
                         {
                             isAdmin ? <>
+                            
                                 <div className='mx-auto text-center w-3/4 my-10'>
                                     <img src={user.photoURL} className='mx-auto rounded-full' alt="" />
                                     <h3 className='text-2xl font-bold'>{user.displayName}</h3>

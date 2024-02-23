@@ -44,6 +44,7 @@ const Dashboard = () => {
                             </> :
                                 isInstructor ?
                                     <>
+                                    
                                         <div className='mx-auto text-center w-3/4 my-10'>
                                             <img src={user.photoURL} className='mx-auto rounded-full' alt="" />
                                             <h3 className='text-2xl font-bold'>{user.displayName}</h3>
